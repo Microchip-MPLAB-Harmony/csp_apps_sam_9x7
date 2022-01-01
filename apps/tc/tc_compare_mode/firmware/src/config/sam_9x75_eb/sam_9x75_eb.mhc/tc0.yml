@@ -1,0 +1,238 @@
+format_version: v1.0
+type: UniqueComponent
+attributes: {id: tc0}
+children:
+- type: Symbols
+  children:
+  - type: Boolean
+    attributes: {id: TC0_CH0_INTERRUPT_ENABLE}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: tc0, value: 'false'}
+  - type: String
+    attributes: {id: TC0_CH0_INTERRUPT_HANDLER}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: tc0, value: TC0_CH0_Handler}
+  - type: Boolean
+    attributes: {id: TC0_CH0_INTERRUPT_HANDLER_LOCK}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: tc0, value: 'false'}
+  - type: Boolean
+    attributes: {id: TC0_CH1_INTERRUPT_ENABLE}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: tc0, value: 'false'}
+  - type: String
+    attributes: {id: TC0_CH1_INTERRUPT_HANDLER}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: tc0, value: TC0_CH1_Handler}
+  - type: Boolean
+    attributes: {id: TC0_CH1_INTERRUPT_HANDLER_LOCK}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: tc0, value: 'false'}
+  - type: Boolean
+    attributes: {id: TC0_CH2_INTERRUPT_ENABLE}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: tc0, value: 'false'}
+  - type: String
+    attributes: {id: TC0_CH2_INTERRUPT_HANDLER}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: tc0, value: TC0_CH2_Handler}
+  - type: Boolean
+    attributes: {id: TC0_CH2_INTERRUPT_HANDLER_LOCK}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: tc0, value: 'false'}
+  - type: Integer
+    attributes: {id: TC1_CLOCK_FREQ}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: tc0, value: '8333333'}
+  - type: Combo
+    attributes: {id: TC1_CMR_ACPA}
+    children:
+    - type: Values
+      children:
+      - type: User
+        attributes: {value: CLEAR}
+  - type: Combo
+    attributes: {id: TC1_CMR_ACPC}
+    children:
+    - type: Values
+      children:
+      - type: User
+        attributes: {value: SET}
+  - type: KeyValueSet
+    attributes: {id: TC1_CMR_TCCLKS}
+    children:
+    - type: Values
+      children:
+      - type: User
+        attributes: {value: '3'}
+  - type: Menu
+    attributes: {id: TC1_COMPARE}
+    children:
+    - type: Attributes
+      children:
+      - type: Boolean
+        attributes: {id: visible}
+        children:
+        - {type: Value, value: 'true'}
+  - type: Long
+    attributes: {id: TC1_COMPARE_A}
+    children:
+    - type: Attributes
+      children:
+      - type: Long
+        attributes: {id: max}
+        children:
+        - {type: Value, value: '83334'}
+    - type: Values
+      children:
+      - type: User
+        attributes: {value: '62500'}
+  - type: Long
+    attributes: {id: TC1_COMPARE_B}
+    children:
+    - type: Attributes
+      children:
+      - type: Long
+        attributes: {id: max}
+        children:
+        - {type: Value, value: '83334'}
+  - type: Boolean
+    attributes: {id: TC1_COMPARE_IER_CPCS}
+    children:
+    - type: Values
+      children:
+      - type: User
+        attributes: {value: 'false'}
+  - type: Comment
+    attributes: {id: TC1_COMPARE_PERIOD}
+    children:
+    - type: Attributes
+      children:
+      - type: String
+        attributes: {id: text}
+        children:
+        - {type: Value, value: '**** Waveform Period is 10000.0804 uS****'}
+  - type: Long
+    attributes: {id: TC1_COMPARE_PERIOD_COUNT}
+    children:
+    - type: Values
+      children:
+      - type: User
+        attributes: {value: '83334'}
+  - type: Boolean
+    attributes: {id: TC1_ENABLE}
+    children:
+    - type: Values
+      children:
+      - type: User
+        attributes: {value: 'true'}
+  - type: Combo
+    attributes: {id: TC1_OPERATING_MODE}
+    children:
+    - type: Values
+      children:
+      - type: User
+        attributes: {value: COMPARE}
+  - type: Boolean
+    attributes: {id: TC1_PCK7}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: tc0, value: 'false'}
+  - type: Comment
+    attributes: {id: TC1_Resolution}
+    children:
+    - type: Attributes
+      children:
+      - type: String
+        attributes: {id: text}
+        children:
+        - {type: Value, value: '****Clock resolution is 120.0000048 nS****'}
+  - type: Menu
+    attributes: {id: TC1_TIMER}
+    children:
+    - type: Attributes
+      children:
+      - type: Boolean
+        attributes: {id: visible}
+        children:
+        - {type: Value, value: 'false'}
+  - type: Comment
+    attributes: {id: TC1_TIMER_PERIOD_CMT}
+    children:
+    - type: Attributes
+      children:
+      - type: String
+        attributes: {id: text}
+        children:
+        - {type: Value, value: '****Period Count is 106666****'}
+  - type: Long
+    attributes: {id: TC1_TIMER_PERIOD_COUNT}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: tc0, value: '106666'}
+  - type: Float
+    attributes: {id: TC1_TIMER_PERIOD_MS}
+    children:
+    - type: Attributes
+      children:
+      - type: Float
+        attributes: {id: max}
+        children:
+        - {type: Value, value: '515396.1'}
+  - type: Integer
+    attributes: {id: TC3_CLOCK_FREQ}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: tc0, value: '266666666'}
+  - type: Boolean
+    attributes: {id: TC3_PCK7}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: tc0, value: 'false'}
+  - type: Boolean
+    attributes: {id: TC_COMMON_INTERRUPT_STATUS}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: tc0, value: 'false'}
+- type: ElementPosition
+  attributes: {x: '320', y: '20', id: tc0}
