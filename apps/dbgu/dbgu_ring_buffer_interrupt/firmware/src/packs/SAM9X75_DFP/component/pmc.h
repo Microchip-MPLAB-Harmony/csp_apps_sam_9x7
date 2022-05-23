@@ -1,7 +1,7 @@
 /*
  * Component description for PMC
  *
- * Copyright (c) 2021 Microchip Technology Inc. and its subsidiaries.
+ * Copyright (c) 2022 Microchip Technology Inc. and its subsidiaries.
  *
  * Subject to your compliance with these terms, you may use Microchip software and any derivatives
  * exclusively with Microchip products. It is your responsibility to comply with third party license
@@ -20,7 +20,7 @@
  *
  */
 
-/* file generated from device description version 2021-12-02T16:30:36Z */
+/* file generated from device description version 2022-01-05T08:57:53Z */
 #ifndef _SAM9X7_PMC_COMPONENT_H_
 #define _SAM9X7_PMC_COMPONENT_H_
 
@@ -820,6 +820,7 @@
 #define   PMC_PCR_GCLKCSS_PLLA_Val            _U_(0x4)                                             /**< (PMC_PCR) PLLA is selected.  */
 #define   PMC_PCR_GCLKCSS_UPLL_Val            _U_(0x5)                                             /**< (PMC_PCR) UPLL is selected.  */
 #define   PMC_PCR_GCLKCSS_AUDIOPLL_Val        _U_(0x6)                                             /**< (PMC_PCR) Audio PLL is selected.  */
+#define   PMC_PCR_GCLKCSS_PLLADIV2CLK_Val     _U_(0x8)                                             /**< (PMC_PCR) PLLADIV2CLK is selected.  */
 #define PMC_PCR_GCLKCSS_MD_SLOW_CLK           (PMC_PCR_GCLKCSS_MD_SLOW_CLK_Val << PMC_PCR_GCLKCSS_Pos) /**< (PMC_PCR) MD_SLCK is selected Position  */
 #define PMC_PCR_GCLKCSS_TD_SLOW_CLOCK         (PMC_PCR_GCLKCSS_TD_SLOW_CLOCK_Val << PMC_PCR_GCLKCSS_Pos) /**< (PMC_PCR) TD_SLCK is selected Position  */
 #define PMC_PCR_GCLKCSS_MAINCK                (PMC_PCR_GCLKCSS_MAINCK_Val << PMC_PCR_GCLKCSS_Pos)  /**< (PMC_PCR) MAINCK is selected Position  */
@@ -827,6 +828,7 @@
 #define PMC_PCR_GCLKCSS_PLLA                  (PMC_PCR_GCLKCSS_PLLA_Val << PMC_PCR_GCLKCSS_Pos)    /**< (PMC_PCR) PLLA is selected. Position  */
 #define PMC_PCR_GCLKCSS_UPLL                  (PMC_PCR_GCLKCSS_UPLL_Val << PMC_PCR_GCLKCSS_Pos)    /**< (PMC_PCR) UPLL is selected. Position  */
 #define PMC_PCR_GCLKCSS_AUDIOPLL              (PMC_PCR_GCLKCSS_AUDIOPLL_Val << PMC_PCR_GCLKCSS_Pos) /**< (PMC_PCR) Audio PLL is selected. Position  */
+#define PMC_PCR_GCLKCSS_PLLADIV2CLK           (PMC_PCR_GCLKCSS_PLLADIV2CLK_Val << PMC_PCR_GCLKCSS_Pos) /**< (PMC_PCR) PLLADIV2CLK is selected. Position  */
 #define PMC_PCR_GCLKDIV_Pos                   _U_(16)                                              /**< (PMC_PCR) Generic Clock Division Ratio Position */
 #define PMC_PCR_GCLKDIV_Msk                   (_U_(0xFFF) << PMC_PCR_GCLKDIV_Pos)                  /**< (PMC_PCR) Generic Clock Division Ratio Mask */
 #define PMC_PCR_GCLKDIV(value)                (PMC_PCR_GCLKDIV_Msk & ((value) << PMC_PCR_GCLKDIV_Pos))
