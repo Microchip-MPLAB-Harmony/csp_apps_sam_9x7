@@ -1,7 +1,7 @@
 /*
  * Instance header file for ATSAM9X75D5M
  *
- * Copyright (c) 2021 Microchip Technology Inc. and its subsidiaries.
+ * Copyright (c) 2022 Microchip Technology Inc. and its subsidiaries.
  *
  * Subject to your compliance with these terms, you may use Microchip software and any derivatives
  * exclusively with Microchip products. It is your responsibility to comply with third party license
@@ -20,7 +20,7 @@
  *
  */
 
-/* file generated from device description version 2021-12-02T16:30:36Z */
+/* file generated from device description version 2022-01-05T08:57:53Z */
 #ifndef _SAM9X7_FLEXCOM12_INSTANCE_
 #define _SAM9X7_FLEXCOM12_INSTANCE_
 

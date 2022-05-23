@@ -93,6 +93,9 @@ int main ( void )
         {
             alarmTriggered = false;
             printf("\n\rAlarm Triggered !!!!!!!!\n\r");
+            while (1)
+            {
+            }
         }
     }
 

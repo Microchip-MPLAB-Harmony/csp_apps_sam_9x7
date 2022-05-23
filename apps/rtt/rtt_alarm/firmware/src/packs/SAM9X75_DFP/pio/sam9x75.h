@@ -1,7 +1,7 @@
 /*
  * Peripheral I/O description for SAM9X75
  *
- * Copyright (c) 2021 Microchip Technology Inc. and its subsidiaries.
+ * Copyright (c) 2022 Microchip Technology Inc. and its subsidiaries.
  *
  * Subject to your compliance with these terms, you may use Microchip software and any derivatives
  * exclusively with Microchip products. It is your responsibility to comply with third party license
@@ -20,7 +20,7 @@
  *
  */
 
-/* file generated from device description version 2021-12-02T16:30:25Z */
+/* file generated from device description version 2022-01-05T08:57:51Z */
 #ifndef _SAM9X75_GPIO_H_
 #define _SAM9X75_GPIO_H_
 
