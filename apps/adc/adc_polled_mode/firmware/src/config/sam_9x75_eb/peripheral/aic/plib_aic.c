@@ -41,6 +41,7 @@
 *******************************************************************************/
 //DOM-IGNORE-END
 #include "definitions.h"
+#include "toolchain_specifics.h"    // __disable_irq, __enable_irq
 
 #ifndef CPSR_I_Msk
 #define CPSR_I_Msk      (1UL << 7U)
@@ -63,7 +64,7 @@ static inline unsigned int __get_CPSR( void )
 // Section: AIC Implementation
 // *****************************************************************************
 // *****************************************************************************
-extern IrqData  irqData[2];
+extern IrqData  irqData[];
 extern uint32_t irqDataEntryCount;
 void DefaultInterruptHandlerForSpurious( void );
 
@@ -84,6 +85,8 @@ AIC_INT_Initialize( void )
     {
         aicPtr->AIC_SSR = AIC_SSR_INTSEL( ii );
         aicPtr->AIC_IDCR = AIC_IDCR_Msk;
+        aicPtr->AIC_FFDR = AIC_FFDR_Msk;
+        aicPtr->AIC_SVRRDR = AIC_SVRRDR_Msk;
         __DSB();
         __ISB();
         aicPtr->AIC_ICCR = AIC_ICCR_INTCLR_Msk;
@@ -118,7 +121,7 @@ void AIC_INT_IrqEnable( void )
 bool AIC_INT_IrqDisable( void )
 {
     /* Add a volatile qualifier to the return value to prevent the compiler from optimizing out this function */
-    volatile bool previousValue = (CPSR_I_Msk & __get_CPSR())? false:true;
+    volatile bool previousValue = ((CPSR_I_Msk & __get_CPSR()) != 0U)? false:true;
     __disable_irq();
     __DMB();
     return( previousValue );

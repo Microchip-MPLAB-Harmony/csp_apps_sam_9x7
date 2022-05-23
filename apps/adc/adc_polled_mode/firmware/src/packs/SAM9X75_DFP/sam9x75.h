@@ -1,7 +1,7 @@
 /*
  * Header file for ATSAM9X75
  *
- * Copyright (c) 2021 Microchip Technology Inc. and its subsidiaries.
+ * Copyright (c) 2022 Microchip Technology Inc. and its subsidiaries.
  *
  * Subject to your compliance with these terms, you may use Microchip software and any derivatives
  * exclusively with Microchip products. It is your responsibility to comply with third party license
@@ -20,7 +20,7 @@
  *
  */
 
-/* File generated from device description version 2021-12-02T16:30:25Z */
+/* File generated from device description version 2022-01-05T08:57:51Z */
 #ifndef _SAM9X75_H_
 #define _SAM9X75_H_
 
@@ -74,12 +74,12 @@ typedef enum IRQn
 {
 /******  SAM9X75 specific Interrupt Numbers ***********************************/
   EXT_FIQ_IRQn              =   0, /* 0   Advanced Interrupt Controller (AIC) */
-  WDT_IRQn                  =   1, /* 1   Shared between PMC WDT PIT RSTC RTT RTC (WDT) */
   RTT_IRQn                  =   1, /* 1   Shared between PMC WDT PIT RSTC RTT RTC (RTT) */
-  PMC_IRQn                  =   1, /* 1   Shared between PMC WDT PIT RSTC RTT RTC (PMC) */
-  RTC_IRQn                  =   1, /* 1   Shared between PMC WDT PIT RSTC RTT RTC (RTC) */
   RSTC_IRQn                 =   1, /* 1   Shared between PMC WDT PIT RSTC RTT RTC (RSTC) */
+  RTC_IRQn                  =   1, /* 1   Shared between PMC WDT PIT RSTC RTT RTC (RTC) */
+  PMC_IRQn                  =   1, /* 1   Shared between PMC WDT PIT RSTC RTT RTC (PMC) */
   PIT_IRQn                  =   1, /* 1   Shared between PMC WDT PIT RSTC RTT RTC (PIT) */
+  WDT_IRQn                  =   1, /* 1   Shared between PMC WDT PIT RSTC RTT RTC (WDT) */
   PIOA_IRQn                 =   2, /* 2   Parallel Input/Output Controller (PIOA) */
   PIOB_IRQn                 =   3, /* 3   Parallel Input/Output Controller (PIOB) */
   PIOC_IRQn                 =   4, /* 4   Parallel Input/Output Controller (PIOC) */
@@ -125,8 +125,8 @@ typedef enum IRQn
   TC1_IRQn                  =  45, /* 45  Timer Counter (TC1)                 */
   OTPC_IRQn                 =  46, /* 46  OTP Memory Controller (OTPC)        */
   DBGU_IRQn                 =  47, /* 47  Debug Unit (DBGU)                   */
-  PMECC_IRQn                =  48, /* 48  Shared between PMECC PMERRLOC (PMECC) */
   PMERRLOC_IRQn             =  48, /* 48  Shared between PMECC PMERRLOC (PMERRLOC) */
+  PMECC_IRQn                =  48, /* 48  Shared between PMECC PMERRLOC (PMECC) */
   MPDDRC_IRQn               =  49, /* 49  Shared between MPDDRC SMC (MPDDRC)  */
   SMC_IRQn                  =  49, /* 49  Shared between MPDDRC SMC (SMC)     */
   CSI2DC_IRQn               =  52, /* 52  CSI-2 Demultiplexer Controller (CSI2DC) */
