@@ -25,6 +25,7 @@
 #include "plib_clk.h"
 
 #define PLL_ID_PLLA     0U
+#define PLL_ID_PLLADIV2 4U
 
 
 
