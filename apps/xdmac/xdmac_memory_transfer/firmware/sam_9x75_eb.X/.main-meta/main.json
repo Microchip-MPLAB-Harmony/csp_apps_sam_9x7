@@ -4,7 +4,7 @@
 	"content": {
 		"metaDataVersion": "1.1.0",
 		"name": "com.microchip.mcu32.mplabx.project.csp_apps_sam_9x7_xdmac_memory_transfer",
-		"version": "3.2.0",
+		"version": "3.0.0",
 		"displayName": "XDMAC memory transfer Example for SAM 9x7 Family",
 		"projectName": "xdmac_memory_transfer_sam_9x75_eb",
 		"shortDescription": "This example application shows how to use the XDMAC peripheral to do a memory to memory transfer and illustrates the usage of burst size to reduce the transfer time.",
