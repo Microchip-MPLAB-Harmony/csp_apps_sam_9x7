@@ -9,7 +9,7 @@ has_toc: false
 
 # PIT64B periodic interrupt
 
-This application shows how to use PIT64B0 counter in interrupt mode.
+This application shows how to use PIT64B counter in interrupt mode.
 
 ## Description
 

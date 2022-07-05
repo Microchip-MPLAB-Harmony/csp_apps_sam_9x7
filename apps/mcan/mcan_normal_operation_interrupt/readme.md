@@ -1,13 +1,13 @@
 ---
 parent: Harmony 3 peripheral library application examples for SAM9X7 family
-title: MCAN normal operation interrupt 
+title: MCAN interrupt
 has_children: false
 has_toc: false
 ---
 
 [![MCHP](https://www.microchip.com/ResourcePackages/Microchip/assets/dist/images/logo.png)](https://www.microchip.com)
 
-# MCAN normal operation interrupt
+# MCAN interrupt
 
 This example shows how to use the MCAN module to transmit and receive CAN messages in interrupt mode.
 
@@ -70,7 +70,6 @@ The following table shows the target hardware for the application projects.
 | CAN1_H            | CAN1_H             |
 | CAN1_L            | CAN1_L             |
 | GND               | GND                |
-|||
 
 - SDMMC slot used for bootloading the application is SDMMC0 (J8)
 - Connect the DBGU0 J34 on board to the computer using a UART-FTDI cable (to enable debug com port)
