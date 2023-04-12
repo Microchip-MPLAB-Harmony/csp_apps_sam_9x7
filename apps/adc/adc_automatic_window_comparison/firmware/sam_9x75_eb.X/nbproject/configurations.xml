@@ -250,7 +250,7 @@
         <ScriptingSetting key="boot.load_adr" value=""/>
         <ScriptingSetting key="boot.use" value="true"/>
         <ScriptingSetting key="boot.entry_adr" value=""/>
-        <ScriptingSetting key="boot.path" value="${ProjectDir}/../at91bootstrap_sam_9x75_eb.X/build/binaries/at91bootstrap.elf"/>
+        <ScriptingSetting key="boot.path" value="${ProjectDir}\..\..\..\..\..\deps\at91bootstrap_binaries\at91bootstrap.elf"/>
         <ScriptingSetting key="boot.prj" value=""/>
       </ScriptingSettings>
       <compileType>
@@ -786,7 +786,7 @@
         <property key="AutoSelectMemRanges" value="auto"/>
         <property key="boot.entry_adr" value=""/>
         <property key="boot.load_adr" value=""/>
-        <property key="boot.path" value="${ProjectDir}/../at91bootstrap_sam_9x75_eb.X/build/binaries/at91bootstrap.elf"/>
+        <property key="boot.path" value="${ProjectDir}\..\..\..\..\..\deps\at91bootstrap_binaries\at91bootstrap.elf"/>
         <property key="boot.prj" value=""/>
         <property key="boot.use" value="true"/>
         <property key="codecoverage.enabled" value="Disable"/>
