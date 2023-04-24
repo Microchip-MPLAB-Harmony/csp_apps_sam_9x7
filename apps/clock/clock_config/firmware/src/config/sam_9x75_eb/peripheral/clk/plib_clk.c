@@ -39,7 +39,10 @@ static void initProgrammableClk(void)
     PMC_REGS->PMC_PCK[1] = PMC_PCK_CSS_PLLA |
                                 PMC_PCK_PRES(199);
     PMC_REGS->PMC_SCER |= PMC_SCDR_PCK1_Msk;
-    while ((PMC_REGS->PMC_SR & PMC_SR_PCKRDY1_Msk) != PMC_SR_PCKRDY1_Msk);
+    while ((PMC_REGS->PMC_SR & PMC_SR_PCKRDY1_Msk) != PMC_SR_PCKRDY1_Msk)
+    {
+        /* Wait */
+    }
 }
 
 /*********************************************************************************
@@ -52,7 +55,7 @@ static void initPeriphClk(void)
         uint8_t clken;
         uint8_t gclken;
         uint8_t css;
-        uint8_t div;
+        uint8_t div_val;
     } periphList[] =
     {
         { ID_PIOA, 1, 0, 0, 0},
@@ -62,10 +65,10 @@ static void initPeriphClk(void)
         { ID_PERIPH_MAX + 1, 0, 0, 0, 0}//end of list marker
     };
 
-    int count = sizeof(periphList)/sizeof(periphList[0]);
-    for (int i = 0; i < count; i++)
+    uint32_t count = sizeof(periphList)/sizeof(periphList[0]);
+    for (uint32_t i = 0; i < count; i++)
     {
-        if (periphList[i].id == (ID_PERIPH_MAX + 1))
+        if (periphList[i].id == (uint8_t)((uint32_t)ID_PERIPH_MAX + 1U))
         {
             break;
         }
@@ -73,7 +76,7 @@ static void initPeriphClk(void)
         PMC_REGS->PMC_PCR = PMC_PCR_CMD_Msk |
                             PMC_PCR_GCLKEN(periphList[i].gclken) |
                             PMC_PCR_EN(periphList[i].clken) |
-                            PMC_PCR_GCLKDIV(periphList[i].div) |
+                            PMC_PCR_GCLKDIV(periphList[i].div_val) |
                             PMC_PCR_GCLKCSS(periphList[i].css) |
                             PMC_PCR_PID(periphList[i].id);
     }
