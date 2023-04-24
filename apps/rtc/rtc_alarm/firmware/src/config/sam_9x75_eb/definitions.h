@@ -53,8 +53,8 @@
 #include "peripheral/clk/plib_clk.h"
 #include "peripheral/pio/plib_pio.h"
 #include "peripheral/aic/plib_aic.h"
-#include "peripheral/dbgu/plib_dbgu.h"
 #include "peripheral/rtc/plib_rtc.h"
+#include "peripheral/dbgu/plib_dbgu.h"
 
 // DOM-IGNORE-BEGIN
 #ifdef __cplusplus  // Provide C++ Compatibility
@@ -63,6 +63,12 @@ extern "C" {
 
 #endif
 // DOM-IGNORE-END
+
+/* Device Information */
+#define DEVICE_NAME			 "SAM9X75"
+#define DEVICE_ARCH			 "ARM926EJ-S"
+#define DEVICE_FAMILY		 "SAM9"
+#define DEVICE_SERIES		 "SAM9X7"
 
 /* CPU clock frequency */
 #define CPU_CLOCK_FREQUENCY 800000000
