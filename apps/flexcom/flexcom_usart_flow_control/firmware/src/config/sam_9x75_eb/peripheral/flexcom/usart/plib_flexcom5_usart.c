@@ -52,65 +52,70 @@
 #include "plib_flexcom5_usart.h"
 #include "interrupts.h"
 
-#define FLEXCOM5_USART_HW_RX_FIFO_THRES                 8
-#define FLEXCOM5_USART_HW_TX_FIFO_THRES                 8
+#define FLEXCOM5_USART_HW_RX_FIFO_THRES                 8U
+#define FLEXCOM5_USART_HW_TX_FIFO_THRES                 8U
+
+#define FLEXCOM_USART_RHR_8BIT_REG      (*(volatile uint8_t* const)((FLEXCOM5_BASE_ADDRESS + FLEX_US_RHR_REG_OFST)))
+#define FLEXCOM_USART_RHR_9BIT_REG      (*(volatile uint16_t* const)((FLEXCOM5_BASE_ADDRESS + FLEX_US_RHR_REG_OFST)))
+
+#define FLEXCOM_USART_THR_8BIT_REG      (*(volatile uint8_t* const)((FLEXCOM5_BASE_ADDRESS + FLEX_US_THR_REG_OFST)))
+#define FLEXCOM_USART_THR_9BIT_REG      (*(volatile uint16_t* const)((FLEXCOM5_BASE_ADDRESS + FLEX_US_THR_REG_OFST)))
 
 // *****************************************************************************
 // *****************************************************************************
 // Section: FLEXCOM5 USART Implementation
 // *****************************************************************************
 // *****************************************************************************
-FLEXCOM_USART_OBJECT flexcom5UsartObj;
+volatile static FLEXCOM_USART_OBJECT flexcom5UsartObj;
 
 void static FLEXCOM5_USART_ErrorClear( void )
 {
-    uint16_t dummyData = 0;
-
-    if (FLEXCOM5_REGS->FLEX_US_CSR & (FLEX_US_CSR_OVRE_Msk | FLEX_US_CSR_FRAME_Msk | FLEX_US_CSR_PARE_Msk))
+    if ((FLEXCOM5_REGS->FLEX_US_CSR & (FLEX_US_CSR_OVRE_Msk | FLEX_US_CSR_FRAME_Msk | FLEX_US_CSR_PARE_Msk)) != 0U)
     {
         /* Clear the error flags */
         FLEXCOM5_REGS->FLEX_US_CR = FLEX_US_CR_RSTSTA_Msk;
 
         /* Flush existing error bytes from the RX FIFO */
-        while( FLEXCOM5_REGS->FLEX_US_CSR & FLEX_US_CSR_RXRDY_Msk )
+        while((FLEXCOM5_REGS->FLEX_US_CSR & FLEX_US_CSR_RXRDY_Msk) != 0U)
         {
-            if (FLEXCOM5_REGS->FLEX_US_MR & FLEX_US_MR_MODE9_Msk)
+            if ((FLEXCOM5_REGS->FLEX_US_MR & FLEX_US_MR_MODE9_Msk) != 0U)
             {
-                dummyData = *((uint16_t*)&FLEXCOM5_REGS->FLEX_US_RHR) & FLEX_US_RHR_RXCHR_Msk;
+                (void)(FLEXCOM_USART_RHR_9BIT_REG);
             }
             else
             {
-                dummyData = *((uint8_t*)&FLEXCOM5_REGS->FLEX_US_RHR);
+                (void)(FLEXCOM_USART_RHR_8BIT_REG);
             }
         }
     }
-
-    /* Ignore the warning */
-    (void)dummyData;
-
-    return;
 }
 
-void static FLEXCOM5_USART_ISR_RX_Handler( void )
+
+void static __attribute__((used)) FLEXCOM5_USART_ISR_RX_Handler( void )
 {
     uint32_t rxPending = 0;
     uint32_t rxThreshold = 0;
+    size_t rxProcessedSize = flexcom5UsartObj.rxProcessedSize;
+    size_t rxSize = flexcom5UsartObj.rxSize;
+
     if(flexcom5UsartObj.rxBusyStatus == true)
     {
-        while( (FLEXCOM5_REGS->FLEX_US_CSR & FLEX_US_CSR_RXRDY_Msk) && (flexcom5UsartObj.rxProcessedSize < flexcom5UsartObj.rxSize) )
+        while(((FLEXCOM5_REGS->FLEX_US_CSR & FLEX_US_CSR_RXRDY_Msk) != 0U) && (rxProcessedSize < rxSize))
         {
-            if (FLEXCOM5_REGS->FLEX_US_MR & FLEX_US_MR_MODE9_Msk)
+            if ((FLEXCOM5_REGS->FLEX_US_MR & FLEX_US_MR_MODE9_Msk) != 0U)
             {
-                ((uint16_t*)flexcom5UsartObj.rxBuffer)[flexcom5UsartObj.rxProcessedSize++] = *((uint16_t*)&FLEXCOM5_REGS->FLEX_US_RHR) & FLEX_US_RHR_RXCHR_Msk;
+                ((uint16_t*)flexcom5UsartObj.rxBuffer)[rxProcessedSize] = (FLEXCOM_USART_RHR_9BIT_REG & (uint16_t)FLEX_US_RHR_RXCHR_Msk);
+                rxProcessedSize++;
             }
             else
             {
-                flexcom5UsartObj.rxBuffer[flexcom5UsartObj.rxProcessedSize++] = *((uint8_t*)&FLEXCOM5_REGS->FLEX_US_RHR);
+                ((uint8_t*)flexcom5UsartObj.rxBuffer)[rxProcessedSize] = (FLEXCOM_USART_RHR_8BIT_REG);
+                rxProcessedSize++;
             }
         }
 
-        rxPending = flexcom5UsartObj.rxSize - flexcom5UsartObj.rxProcessedSize;
-        if (rxPending > 0)
+        rxPending = rxSize - rxProcessedSize;
+        if (rxPending > 0U)
         {
             rxThreshold = (FLEXCOM5_REGS->FLEX_US_FMR & FLEX_US_FMR_RXFTHRES_Msk) >> FLEX_US_FMR_RXFTHRES_Pos;
             if (rxPending < rxThreshold)
@@ -119,8 +124,10 @@ void static FLEXCOM5_USART_ISR_RX_Handler( void )
             }
         }
 
+        flexcom5UsartObj.rxProcessedSize = rxProcessedSize;
+
         /* Check if the buffer is done */
-        if(flexcom5UsartObj.rxProcessedSize >= flexcom5UsartObj.rxSize)
+        if(rxProcessedSize >= rxSize)
         {
             flexcom5UsartObj.rxBusyStatus = false;
 
@@ -130,39 +137,45 @@ void static FLEXCOM5_USART_ISR_RX_Handler( void )
 
             if(flexcom5UsartObj.rxCallback != NULL)
             {
-                flexcom5UsartObj.rxCallback(flexcom5UsartObj.rxContext);
+                uintptr_t rxContext = flexcom5UsartObj.rxContext;
+
+                flexcom5UsartObj.rxCallback(rxContext);
             }
         }
     }
     else
     {
         /* Nothing to process */
-        ;
     }
-
-    return;
 }
 
-void static FLEXCOM5_USART_ISR_TX_Handler( void )
+void static __attribute__((used)) FLEXCOM5_USART_ISR_TX_Handler( void )
 {
     if(flexcom5UsartObj.txBusyStatus == true)
     {
-        while( (FLEXCOM5_REGS->FLEX_US_CSR & FLEX_US_CSR_TXRDY_Msk) && (flexcom5UsartObj.txProcessedSize < flexcom5UsartObj.txSize))
+        size_t txProcessedSize = flexcom5UsartObj.txProcessedSize;
+        size_t txSize = flexcom5UsartObj.txSize;
+
+        while( ((FLEXCOM5_REGS->FLEX_US_CSR & FLEX_US_CSR_TXRDY_Msk) != 0U) && (txProcessedSize < txSize))
         {
-            if (FLEXCOM5_REGS->FLEX_US_MR & FLEX_US_MR_MODE9_Msk)
+            if ((FLEXCOM5_REGS->FLEX_US_MR & FLEX_US_MR_MODE9_Msk) != 0U)
             {
-                *((uint16_t*)&FLEXCOM5_REGS->FLEX_US_THR) =  ((uint16_t*)flexcom5UsartObj.txBuffer)[flexcom5UsartObj.txProcessedSize++] & FLEX_US_THR_TXCHR_Msk;
+                FLEXCOM_USART_THR_9BIT_REG =  ((uint16_t*)flexcom5UsartObj.txBuffer)[txProcessedSize] & (uint16_t)FLEX_US_THR_TXCHR_Msk;
+                txProcessedSize++;
             }
             else
             {
-                *((uint8_t*)&FLEXCOM5_REGS->FLEX_US_THR) =  ((uint8_t*)flexcom5UsartObj.txBuffer)[flexcom5UsartObj.txProcessedSize++];
+                FLEXCOM_USART_THR_8BIT_REG =  ((uint8_t*)flexcom5UsartObj.txBuffer)[txProcessedSize];
+                txProcessedSize++;
             }
         }
 
+        flexcom5UsartObj.txProcessedSize = txProcessedSize;
+
         /* Check if the buffer is done */
-        if(flexcom5UsartObj.txProcessedSize >= flexcom5UsartObj.txSize)
+        if(txProcessedSize >= txSize)
         {
-            if (FLEXCOM5_REGS->FLEX_US_CSR & FLEX_US_CSR_TXEMPTY_Msk)
+            if ((FLEXCOM5_REGS->FLEX_US_CSR & FLEX_US_CSR_TXEMPTY_Msk) != 0U)
             {
                 flexcom5UsartObj.txBusyStatus = false;
 
@@ -172,7 +185,9 @@ void static FLEXCOM5_USART_ISR_TX_Handler( void )
 
                 if(flexcom5UsartObj.txCallback != NULL)
                 {
-                    flexcom5UsartObj.txCallback(flexcom5UsartObj.txContext);
+                    uintptr_t txContext = flexcom5UsartObj.txContext;
+
+                    flexcom5UsartObj.txCallback(txContext);
                 }
             }
             else
@@ -186,25 +201,24 @@ void static FLEXCOM5_USART_ISR_TX_Handler( void )
     else
     {
         /* Nothing to process */
-        ;
     }
-
-    return;
 }
 
-void FLEXCOM5_InterruptHandler( void )
+void __attribute__((used)) FLEXCOM5_InterruptHandler( void )
 {
     /* Channel status */
     uint32_t channelStatus = FLEXCOM5_REGS->FLEX_US_CSR;
+
     uint32_t interruptMask = FLEXCOM5_REGS->FLEX_US_IMR;
+
 
     /* Error status */
     uint32_t errorStatus = (channelStatus & (FLEX_US_CSR_OVRE_Msk | FLEX_US_CSR_FRAME_Msk | FLEX_US_CSR_PARE_Msk));
 
-    if((errorStatus != 0) && (interruptMask & (FLEX_US_IMR_RXRDY_Msk | FLEX_US_IMR_FRAME_Msk | FLEX_US_IMR_PARE_Msk | FLEX_US_IMR_OVRE_Msk)))
+    if((errorStatus != 0U) && ((interruptMask & (FLEX_US_IMR_RXRDY_Msk | FLEX_US_IMR_FRAME_Msk | FLEX_US_IMR_PARE_Msk | FLEX_US_IMR_OVRE_Msk)) != 0U))
     {
         /* Save error to report it later */
-        flexcom5UsartObj.errorStatus = (FLEXCOM_USART_ERROR)errorStatus;
+        flexcom5UsartObj.errorStatus = errorStatus;
 
         /* Clear error flags and flush the error data */
         FLEXCOM5_USART_ErrorClear();
@@ -220,17 +234,27 @@ void FLEXCOM5_InterruptHandler( void )
         /* USART errors are normally associated with the receiver, hence calling receiver context */
         if( flexcom5UsartObj.rxCallback != NULL )
         {
-            flexcom5UsartObj.rxCallback(flexcom5UsartObj.rxContext);
+            uintptr_t rxContext = flexcom5UsartObj.rxContext;
+
+            flexcom5UsartObj.rxCallback(rxContext);
         }
+    }
+
+    /* Receiver status */
+    if((channelStatus & FLEX_US_CSR_RXRDY_Msk) != 0U)
+    {
+        FLEXCOM5_USART_ISR_RX_Handler();
     }
 
 
     /* Clear the FIFO related interrupt flags */
     FLEXCOM5_REGS->FLEX_US_CR = FLEX_US_CR_RSTSTA_Msk;
 
-    FLEXCOM5_USART_ISR_RX_Handler();
-
-    FLEXCOM5_USART_ISR_TX_Handler();
+    /* Transmitter status */
+    if((channelStatus & FLEX_US_CSR_TXRDY_Msk) != 0U)
+    {
+        FLEXCOM5_USART_ISR_TX_Handler();
+    }
 
 }
 
@@ -249,7 +273,7 @@ void FLEXCOM5_USART_Initialize( void )
     FLEXCOM5_REGS->FLEX_US_TTGR = 0;
 
     /* Configure FLEXCOM5 USART mode */
-    FLEXCOM5_REGS->FLEX_US_MR = ( FLEX_US_MR_USART_MODE_HW_HANDSHAKING | FLEX_US_MR_USCLKS_MCK | FLEX_US_MR_CHRL_8_BIT | FLEX_US_MR_PAR_NO | FLEX_US_MR_NBSTOP_1_BIT | (0 << FLEX_US_MR_OVER_Pos));
+    FLEXCOM5_REGS->FLEX_US_MR = ( FLEX_US_MR_USART_MODE_HW_HANDSHAKING | FLEX_US_MR_USCLKS_MCK | FLEX_US_MR_CHRL_8_BIT | FLEX_US_MR_PAR_NO | FLEX_US_MR_NBSTOP_1_BIT | (0UL << FLEX_US_MR_OVER_Pos));
 
     /* Configure FLEXCOM5 USART Baud Rate */
     FLEXCOM5_REGS->FLEX_US_BRGR = FLEX_US_BRGR_CD(144) | FLEX_US_BRGR_FP(5);
@@ -270,8 +294,6 @@ void FLEXCOM5_USART_Initialize( void )
     flexcom5UsartObj.txProcessedSize = 0;
     flexcom5UsartObj.txBusyStatus = false;
     flexcom5UsartObj.txCallback = NULL;
-
-    return;
 }
 
 FLEXCOM_USART_ERROR FLEXCOM5_USART_ErrorGet( void )
@@ -286,15 +308,15 @@ FLEXCOM_USART_ERROR FLEXCOM5_USART_ErrorGet( void )
 
 static void FLEXCOM5_USART_BaudCalculate(uint32_t srcClkFreq, uint32_t reqBaud, uint8_t overSamp, uint32_t* cd, uint32_t* fp, uint32_t* baudError)
 {
-    uint32_t actualBaud = 0;
+    uint32_t actualBaud = 0U;
 
-    *cd = srcClkFreq / (reqBaud * 8 * (2 - overSamp));
+    *cd = srcClkFreq / (reqBaud * 8U * (2U - overSamp));
 
-    if (*cd > 0)
+    if (*cd > 0U)
     {
-        *fp = ((srcClkFreq / (reqBaud * (2 - overSamp))) - ((*cd) * 8));
-        actualBaud = (srcClkFreq / (((*cd) * 8) + (*fp))) / (2 - overSamp);
-        *baudError = ((100 * actualBaud)/reqBaud) - 100;
+        *fp = ((srcClkFreq / (reqBaud * (2U - (uint32_t)overSamp))) - ((*cd) * 8U));
+        actualBaud = (srcClkFreq / (((*cd) * 8U) + (*fp))) / (2U - overSamp);
+        *baudError = ((100U * actualBaud)/reqBaud) - 100U;
     }
 }
 
@@ -306,9 +328,11 @@ bool FLEXCOM5_USART_SerialSetup( FLEXCOM_USART_SERIAL_SETUP *setup, uint32_t src
     uint32_t cd0, fp0, cd1, fp1, baudError0, baudError1;
     bool status = false;
 
-    cd0 = fp0 = cd1 = fp1 = baudError0 = baudError1 = 0;
+    cd0 = fp0 = cd1 = fp1 = baudError0 = baudError1 = 0U;
 
-    if((flexcom5UsartObj.rxBusyStatus == true) || (flexcom5UsartObj.txBusyStatus == true))
+    bool rxBusyStatus = flexcom5UsartObj.rxBusyStatus;
+
+    if((flexcom5UsartObj.txBusyStatus == true) || (rxBusyStatus == true))
     {
         /* Transaction is in progress, so return without updating settings */
         return false;
@@ -318,7 +342,7 @@ bool FLEXCOM5_USART_SerialSetup( FLEXCOM_USART_SERIAL_SETUP *setup, uint32_t src
     {
         baud = setup->baudRate;
 
-        if(srcClkFreq == 0)
+        if(srcClkFreq == 0U)
         {
             srcClkFreq = FLEXCOM5_USART_FrequencyGet();
         }
@@ -328,30 +352,30 @@ bool FLEXCOM5_USART_SerialSetup( FLEXCOM_USART_SERIAL_SETUP *setup, uint32_t src
         FLEXCOM5_USART_BaudCalculate(srcClkFreq, baud, 0, &cd0, &fp0, &baudError0);
         FLEXCOM5_USART_BaudCalculate(srcClkFreq, baud, 1, &cd1, &fp1, &baudError1);
 
-        if ( !(cd0 > 0 && cd0 <= 65535) && !(cd1 > 0 && cd1 <= 65535) )
+        if ( (!(cd0 > 0U && cd0 <= 65535U)) && (!(cd1 > 0U && cd1 <= 65535U)) )
         {
             /* Requested baud cannot be generated with current clock settings */
             return status;
         }
 
-        if ( (cd0 > 0 && cd0 <= 65535) && (cd1 > 0 && cd1 <= 65535) )
+        if ( ((cd0 > 0U) && (cd0 <= 65535U)) && ((cd1 > 0U) && (cd1 <= 65535U)) )
         {
             /* Requested baud can be generated with both 8x and 16x oversampling. Select the one with less % error. */
             if (baudError1 < baudError0)
             {
                 cd0 = cd1;
                 fp0 = fp1;
-                overSampVal = (1 << FLEX_US_MR_OVER_Pos) & FLEX_US_MR_OVER_Msk;
+                overSampVal = (1UL << FLEX_US_MR_OVER_Pos) & FLEX_US_MR_OVER_Msk;
             }
         }
         else
         {
             /* Requested baud can be generated with either with 8x oversampling or with 16x oversampling. Select valid one. */
-            if (cd1 > 0 && cd1 <= 65535)
+            if ((cd1 > 0U )&& (cd1 <= 65535U))
             {
                 cd0 = cd1;
                 fp0 = fp1;
-                overSampVal = (1 << FLEX_US_MR_OVER_Pos) & FLEX_US_MR_OVER_Msk;
+                overSampVal = (1UL << FLEX_US_MR_OVER_Pos) & FLEX_US_MR_OVER_Msk;
             }
         }
 
@@ -371,9 +395,7 @@ bool FLEXCOM5_USART_SerialSetup( FLEXCOM_USART_SERIAL_SETUP *setup, uint32_t src
 bool FLEXCOM5_USART_Read( void *buffer, const size_t size )
 {
     bool status = false;
-    uint8_t* pBuffer = (uint8_t *)buffer;
-
-    if(pBuffer != NULL)
+    if(buffer != NULL)
     {
         /* Check if receive request is in progress */
         if(flexcom5UsartObj.rxBusyStatus == false)
@@ -384,19 +406,21 @@ bool FLEXCOM5_USART_Read( void *buffer, const size_t size )
             /* Clear the errors related to pervious read requests */
             flexcom5UsartObj.errorStatus = FLEXCOM_USART_ERROR_NONE;
 
-            flexcom5UsartObj.rxBuffer = pBuffer;
+            flexcom5UsartObj.rxBuffer = buffer;
             flexcom5UsartObj.rxSize = size;
             flexcom5UsartObj.rxProcessedSize = 0;
             flexcom5UsartObj.rxBusyStatus = true;
             status = true;
 
 
+
+            size_t rxSize = flexcom5UsartObj.rxSize;
             /* Clear RX FIFO */
             FLEXCOM5_REGS->FLEX_US_CR = FLEX_US_CR_RXFCLR_Msk;
 
-            if (flexcom5UsartObj.rxSize < FLEXCOM5_USART_HW_RX_FIFO_THRES)
+            if (rxSize < FLEXCOM5_USART_HW_RX_FIFO_THRES)
             {
-                FLEXCOM5_REGS->FLEX_US_FMR = (FLEXCOM5_REGS->FLEX_US_FMR & ~FLEX_US_FMR_RXFTHRES_Msk) | FLEX_US_FMR_RXFTHRES(flexcom5UsartObj.rxSize);
+                FLEXCOM5_REGS->FLEX_US_FMR = (FLEXCOM5_REGS->FLEX_US_FMR & ~FLEX_US_FMR_RXFTHRES_Msk) | FLEX_US_FMR_RXFTHRES(rxSize);
             }
             else
             {
@@ -409,6 +433,7 @@ bool FLEXCOM5_USART_Read( void *buffer, const size_t size )
             /* Enable RX FIFO Threshold interrupt */
             FLEXCOM5_REGS->FLEX_US_FIER = FLEX_US_FIER_RXFTHF_Msk;
 
+
         }
     }
 
@@ -418,33 +443,38 @@ bool FLEXCOM5_USART_Read( void *buffer, const size_t size )
 bool FLEXCOM5_USART_Write( void *buffer, const size_t size )
 {
     bool status = false;
-    uint8_t* pBuffer = (uint8_t *)buffer;
-
-    if(pBuffer != NULL)
+    if(buffer != NULL)
     {
         /* Check if transmit request is in progress */
         if(flexcom5UsartObj.txBusyStatus == false)
         {
-            flexcom5UsartObj.txBuffer = (uint8_t*)pBuffer;
+            flexcom5UsartObj.txBuffer = buffer;
             flexcom5UsartObj.txSize = size;
             flexcom5UsartObj.txProcessedSize = 0;
             flexcom5UsartObj.txBusyStatus = true;
             status = true;
 
+
+            size_t txProcessedSize = flexcom5UsartObj.txProcessedSize;
+            size_t txSize = flexcom5UsartObj.txSize;
+
             /* Initiate the transfer by sending first byte */
-            while( (FLEXCOM5_REGS->FLEX_US_CSR & FLEX_US_CSR_TXRDY_Msk) && (flexcom5UsartObj.txProcessedSize < flexcom5UsartObj.txSize) )
+            while(((FLEXCOM5_REGS->FLEX_US_CSR & FLEX_US_CSR_TXRDY_Msk) != 0U) && (txProcessedSize < txSize))
             {
-                if (FLEXCOM5_REGS->FLEX_US_MR & FLEX_US_MR_MODE9_Msk)
+                if ((FLEXCOM5_REGS->FLEX_US_MR & FLEX_US_MR_MODE9_Msk) != 0U)
                 {
-                    *((uint16_t*)&FLEXCOM5_REGS->FLEX_US_THR) =  ((uint16_t*)flexcom5UsartObj.txBuffer)[flexcom5UsartObj.txProcessedSize++] & FLEX_US_THR_TXCHR_Msk;
+                    FLEXCOM_USART_THR_9BIT_REG = ((uint16_t*)flexcom5UsartObj.txBuffer)[txProcessedSize] & (uint16_t)FLEX_US_THR_TXCHR_Msk;
                 }
                 else
                 {
-                    *((uint8_t*)&FLEXCOM5_REGS->FLEX_US_THR) =  ((uint8_t*)flexcom5UsartObj.txBuffer)[flexcom5UsartObj.txProcessedSize++];
+                    FLEXCOM_USART_THR_8BIT_REG = ((uint8_t*)flexcom5UsartObj.txBuffer)[txProcessedSize];
                 }
+                txProcessedSize++;
             }
 
-            if ( flexcom5UsartObj.txProcessedSize >= flexcom5UsartObj.txSize)
+            flexcom5UsartObj.txProcessedSize = txProcessedSize;
+
+            if ( flexcom5UsartObj.txProcessedSize >= txSize)
             {
                 FLEXCOM5_REGS->FLEX_US_IER = FLEX_US_IER_TXEMPTY_Msk;
             }
@@ -500,7 +530,8 @@ bool FLEXCOM5_USART_ReadAbort(void)
         flexcom5UsartObj.rxBusyStatus = false;
 
         /* If required application should read the num bytes processed prior to calling the read abort API */
-        flexcom5UsartObj.rxSize = flexcom5UsartObj.rxProcessedSize = 0;
+        flexcom5UsartObj.rxSize = 0U;
+        flexcom5UsartObj.rxProcessedSize = 0U;
     }
 
     return true;
@@ -509,13 +540,6 @@ bool FLEXCOM5_USART_ReadAbort(void)
 
 bool FLEXCOM5_USART_TransmitComplete( void )
 {
-    bool status = false;
-
-    if (FLEXCOM5_REGS->FLEX_US_CSR & FLEX_US_CSR_TXEMPTY_Msk)
-    {
-        status = true;
-    }
-
-    return status;
+    return ((FLEXCOM5_REGS->FLEX_US_CSR & FLEX_US_CSR_TXEMPTY_Msk) != 0U);
 }
 
