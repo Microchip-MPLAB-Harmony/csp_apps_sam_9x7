@@ -85,7 +85,9 @@ int main ( void )
     printf("\n\rThe Alarm will Trigger at RTT value %ld\n\n\r", (rtt_val + 10));
 
     RTT_AlarmValueSet((rtt_val + 10));
-    
+
+    RTT_Enable();
+
     while( true )
     {
         printf("RTT value is:   %ld\r", RTT_TimerValueGet());
