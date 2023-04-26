@@ -61,7 +61,7 @@ char receiveBuffer[RX_BUFFER_SIZE];
 char echoBuffer[2*RX_BUFFER_SIZE];
 char messageError[] = "**** DBGU error occurred ****\r\n";
 
-bool errorStatus = false;
+static bool errorStatus = false;
 bool writeStatus = false;
 bool readStatus = false;
 
