@@ -44,18 +44,8 @@ The following table shows the target hardware for the application projects.
 
 ### Setting up [SAM9X75-EB Evaluation Board]()
 
-#### Addtional hardware required
-
-- SD Card with FAT32 file system
-
-#### Setting up the SD Card
-
-- Download harmony MPU bootstrap loader from this [location](firmware/at91bootstrap_sam_9x75_eb.X/build/binaries/boot.bin)
-- Copy the downloaded boot loader binary( boot.bin) onto the SD card
-
 #### Setting up the board
 
-- SDMMC slot used for bootloading the application is SDMMC0 (J8)
 - Connect the DBGU0 J34 on board to the computer using a UART-FTDI cable (to enable debug com port)
 - Connect the USB port J28 on board to the computer using a micro USB cable (to power the board)
 - Connect PWM (PC21) PIN of mikroBUS connector to an oscilloscope/Logic analyzer
@@ -63,18 +53,15 @@ The following table shows the target hardware for the application projects.
 ## Running the Application
 
 1. Build the application using its IDE
-2. Copy the output binary (named 'harmony.bin') onto the SD Card (Refer to the 'Setting up hardware' section above for setting up the SD card)
-3. Insert the SD card into SDMMC slot on the board (Refer to the 'Setting up hardware' section for the correct SDMMC slot)
-4. Open the Terminal application (Ex.:Tera term) on the computer.
-5. Connect to the (USB to Serial) COM port and configure the serial settings as follows:
+2. Open the Terminal application (Ex.:Tera term) on the computer.
+3. Connect to the (USB to Serial) COM port and configure the serial settings as follows:
     - Baud : 115200
     - Data : 8 Bits
     - Parity : None
     - Stop : 1 Bit
     - Flow Control : None
-6. Reset the board to run the application
-7. PWM3 generates an active high PWM signal with 100ms period and 75% duty on PWM (PC21) PIN of mikroBUS connector
-8. Whenever a counter event occurs on PWM channel 0, console is upated as follows:
+4. PWM3 generates an active high PWM signal with 100ms period and 75% duty on PWM (PC21) PIN of mikroBUS connector
+5. Whenever a counter event occurs on PWM channel 0, console is upated as follows:
 
     ![output](images/output_pwm_channels.png)
 

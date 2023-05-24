@@ -46,18 +46,8 @@ The following table shows the target hardware for the application projects.
 
 ### Setting up [SAM9X75-EB Evaluation Board]()
 
-#### Addtional hardware required
-
-- SD Card with FAT32 file system
-
-#### Setting up the SD Card
-
-- Download harmony MPU bootstrap loader from this [location](firmware/at91bootstrap_sam_9x75_eb.X/build/binaries/boot.bin)
-- Copy the downloaded boot loader binary( boot.bin) onto the SD card
-
 #### Setting up the board
 
-- SDMMC slot used for bootloading the application is SDMMC0 (J8)
 - Connect the DBGU0 J34 on board to the computer using a UART-FTDI cable (to enable debug com port)
 - Connect the USB port J28 on board to the computer using a micro USB cable (to power the board)
 - Use a jumper wire to connect Pin AN of mikroBUS (AD6 is mapped to Port Pin PA30) to 3.3 V or GND (OR Use Potentiometer to vary input voltage from GND to 3.3 V and vice-versa)
@@ -65,17 +55,14 @@ The following table shows the target hardware for the application projects.
 ## Running the Application
 
 1. Build the application using its IDE
-2. Copy the output binary (named 'harmony.bin') onto the SD Card (Refer to the 'Setting up hardware' section above for setting up the SD card)
-3. Insert the SD card into SDMMC slot on the board (Refer to the 'Setting up hardware' section for the correct SDMMC slot)
-4. Open the Terminal application (Ex.:Tera term) on the computer.
-5. Connect to the (USB to Serial) COM port and configure the serial settings as follows:
+2. Open the Terminal application (Ex.:Tera term) on the computer.
+3. Connect to the (USB to Serial) COM port and configure the serial settings as follows:
     - Baud : 115200
     - Data : 8 Bits
     - Parity : None
     - Stop : 1 Bit
     - Flow Control : None
-6. Reset the board to run the application
-7. Console displays ADC Count and ADC Input Voltage whenever input voltage goes below lower window threshold value (output is not updated on console, if the values are within the threshold)
+4. Console displays ADC Count and ADC Input Voltage whenever input voltage goes below lower window threshold value (output is not updated on console, if the values are within the threshold)
 
     ![output](images/output_adc_automatic_window_comparison.png)
 

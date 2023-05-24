@@ -53,13 +53,8 @@ The following table shows the target hardware for the application projects.
 | Name |Quantity |
 | -------- | ------- |
 | [SAM9X75-EB Evaluation Board]() | 2 |
-| SD Card with FAT32 file system | 2 |
 |||
 
-#### Setting up the SD Card
-
-- Download harmony MPU bootstrap loader from this [location](firmware/at91bootstrap_sam_9x75_eb.X/build/binaries/boot.bin)
-- Copy the downloaded boot loader binary( boot.bin) onto the each SD card
 
 #### Setting up the board
 
@@ -71,28 +66,25 @@ The following table shows the target hardware for the application projects.
 | CAN1_L            | CAN1_L             |
 | GND               | GND                |
 
-- SDMMC slot used for bootloading the application is SDMMC0 (J8)
 - Connect the DBGU0 J34 on board to the computer using a UART-FTDI cable (to enable debug com port)
 - Connect the USB port J28 on board to the computer using a micro USB cable (to power the board)
 
 ## Running the Application
 
 1. Build the application using its IDE
-2. Copy the output binary (named 'harmony.bin') onto the SD Card (Refer to the 'Setting up hardware' section above for setting up the SD card)
-3. Insert the SD card into SDMMC slot on the board (Refer to the 'Setting up hardware' section for the correct SDMMC slot)
-4. Open the Terminal application (Ex.:Tera term) on the computer.
-5. Connect to the (USB to Serial) COM port and configure the serial settings as follows:
+2. Open the Terminal application (Ex.:Tera term) on the computer.
+3. Connect to the (USB to Serial) COM port and configure the serial settings as follows:
     - Baud : 115200
     - Data : 8 Bits
     - Parity : None
     - Stop : 1 Bit
     - Flow Control : None
-6. Build and Program the application on both the boards using their respective IDEs
-7. In the console associated with board 1, press "1" to transmit a CAN message
-8. Transmitted message status will be displayed in the console window of board 1
-9. Received message will be displayed in the console window of board 2
-10. Follow the sequence below to send and receive CAN message:
+4. Build and Program the application on both the boards using their respective IDEs
+5. In the console associated with board 1, press "1" to transmit a CAN message
+6. Transmitted message status will be displayed in the console window of board 1
+7. Received message will be displayed in the console window of board 2
+8. Follow the sequence below to send and receive CAN message:
     - Press '1' on board 2
-11. If the steps are executed in this sequence, the final output in the consoles will be as below:
+9. If the steps are executed in this sequence, the final output in the consoles will be as below:
 
   ![output](images/mcan_normal_operation_interrupt.png)

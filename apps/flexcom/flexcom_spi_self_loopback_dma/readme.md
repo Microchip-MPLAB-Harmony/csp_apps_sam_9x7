@@ -45,31 +45,18 @@ The following table shows the target hardware for the application projects.
 
 ### Setting up [SAM9X75-EB Evaluation Board]()
 
-#### Addtional hardware required
-
-- SD Card with FAT32 file system
-
-#### Setting up the SD Card
-
-- Download harmony MPU bootstrap loader from this [location](firmware/at91bootstrap_sam_9x75_eb.X/build/binaries/boot.bin)
-- Copy the downloaded boot loader binary( boot.bin) onto the SD card
-
 #### Setting up the board
 
 - Use jumper wire to Connect "MOSI of mikroBUS Connector" to "MISO of mikroBUS Connector"
   - FLEXCOM5 MOSI signal is mapped to PA16 that is routed to "Pin 6 of mikroBUS Connector"
   - FLEXCOM5 MISO signal is mapped to PA15 that is routed to "Pin 5 of mikroBUS Connector"
-- SDMMC slot used for bootloading the application is SDMMC0 (J8)
 - Connect the DBGU0 J34 on board to the computer using a UART-FTDI cable (to enable debug com port)
 - Connect the USB port J28 on board to the computer using a micro USB cable (to power the board)
 
 ## Running the Application
 
 1. Build the application using its IDE
-2. Copy the output binary (named 'harmony.bin') onto the SD Card (Refer to the 'Setting up hardware' section above for setting up the SD card)
-3. Insert the SD card into SDMMC slot on the board (Refer to the 'Setting up hardware' section for the correct SDMMC slot)
-4. Reset the board to run the application
-5. LED indicates the success or failure:
+2. LED indicates the success or failure:
     - The LED is turned ON when the received data matches the transmitted data
 
 Following table provides the LED name:
