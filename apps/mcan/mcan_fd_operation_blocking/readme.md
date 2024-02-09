@@ -39,6 +39,7 @@ The following table shows the target hardware for the application projects.
 
 | Project Name| Board|
 |:---------|:---------:|
+| [MCP2542 CLICK](https://www.mikroe.com/mcp2542-click) | 2 |
 | sam_9x75_curiosity.X | [SAM9X75 CURIOSITY Board]() |
 |||
 
@@ -54,7 +55,9 @@ The following table shows the target hardware for the application projects.
 
 #### Setting up the board
 
-- Connect SAM9X75 CURIOSITY Board to another SAM9X75 CURIOSITY Board as per the pin connections shown below
+- Insert [MCP2542 CLICK](https://www.mikroe.com/mcp2542-click) in the microbus slot
+
+- Connect SAM9X75 curiosity Board to another SAM9X75 curiosity Board through MCP2542 CLICK as per the pin connections shown below
 
 | SAM9X75_CURIOSITY - 1    | SAM9X75_CURIOSITY - 2    |
 | ----------------- | ------------------ |
