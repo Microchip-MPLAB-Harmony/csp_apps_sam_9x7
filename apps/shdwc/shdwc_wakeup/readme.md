@@ -26,7 +26,7 @@ To build the application, refer to the following table and open the project usin
 
 | Project Name      | Description                                    |
 | ----------------- | ---------------------------------------------- |
-| sam_9x75_eb.X | MPLABX project for [SAM9X75-EB Evaluation Board]() |
+| sam_9x75_curiosity.X | MPLABX project for [SAM9X75 CURIOSITY Board]() |
 |||
 
 ## Setting up AT91Bootstrap loader
@@ -39,10 +39,10 @@ The following table shows the target hardware for the application projects.
 
 | Project Name| Board|
 |:---------|:---------:|
-| sam_9x75_eb.X | [SAM9X75-EB Evaluation Board]() |
+| sam_9x75_curiosity.X | [SAM9X75 CURIOSITY Board]() |
 |||
 
-### Setting up [SAM9X75-EB Evaluation Board]()
+### Setting up [SAM9X75 CURIOSITY Board]()
 
 #### Addtional hardware required
 
@@ -50,14 +50,14 @@ The following table shows the target hardware for the application projects.
 
 #### Setting up the SD Card
 
-- Download harmony MPU bootstrap loader from this [location](firmware/at91bootstrap_sam_9x75_eb.X/build/binaries/boot.bin)
+- Download harmony MPU bootstrap loader from this [location](firmware/at91bootstrap_sam_9x75_curiosity.X/build/binaries/boot.bin)
 - Copy the downloaded boot loader binary( boot.bin) onto the SD card
 
 #### Setting up the board
 
-- SDMMC slot used for bootloading the application is SDMMC0 (J8)
-- Connect the DBGU0 J34 on board to the computer using a UART-FTDI cable (to enable debug com port)
-- Connect the USB port J28 on board to the computer using a micro USB cable (to power the board)
+- SDMMC slot used for bootloading the application is SDMMC0 (J12)
+- Connect the DBGU0 J32 on board to the computer using a UART-FTDI cable (to enable debug com port)
+- Connect the USB port J2 on board to the computer using a micro USB cable (to power the board)
 
 ## Running the Application
 
@@ -66,13 +66,13 @@ The following table shows the target hardware for the application projects.
 3. Insert the SD card into SDMMC slot on the board (Refer to the 'Setting up hardware' section for the correct SDMMC slot)
 4. Reset the board to run the application
 5. LED toggles indicating the board is up and running
-6. Press Switch A  to shutdown the device (LED toggling stops)
-7. Press Switch B to wakeup the device
+6. Press Switch 1  to shutdown the device (LED toggling stops)
+7. Long press Switch 4 to wakeup the device
 8. Device resets (indicated by the LED starting to toggle again)
 
 Following table provides details of switches and LED:
 
 | Board      | Switch A | Switch B | LED |
 | ---------- | ----------- | --------- | --------- |
-| [SAM9X75-EB Evaluation Board]() | USER | START | RGB_LED(Blue) |
+| [SAM9X75 CURIOSITY Board]() | USER | START | RGB_LED(Blue) |
 ||||
