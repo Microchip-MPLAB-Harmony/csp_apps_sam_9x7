@@ -30,7 +30,7 @@ To build the application, refer to the following table and open the project usin
 
 | Project Name      | Description                                    |
 | ----------------- | ---------------------------------------------- |
-| sam_9x75_eb.X | MPLABX project for [SAM9X75-EB Evaluation Board]() |
+| sam_9x75_curiosity.X | MPLABX project for [SAM9X75-EB Evaluation Board]() |
 |||
 
 ## Setting up AT91Bootstrap loader
@@ -43,7 +43,7 @@ The following table shows the target hardware for the application projects.
 
 | Project Name| Board|
 |:---------|:---------:|
-| sam_9x75_eb.X | [SAM9X75-EB Evaluation Board]() |
+| sam_9x75_curiosity.X | [SAM9X75-EB Evaluation Board]() |
 |||
 
 ### Setting up [SAM9X75-EB Evaluation Board]()
@@ -53,22 +53,25 @@ The following table shows the target hardware for the application projects.
 | Name |Quantity |
 | -------- | ------- |
 | [SAM9X75-EB Evaluation Board]() | 2 |
+| [MCP2542 CLICK](https://www.mikroe.com/mcp2542-click) | 2 |
 |||
 
 
 #### Setting up the board
 
-- Connect SAM9X75-EB Evaluation Board to another SAM9X75-EB Evaluation Board as per the pin connections shown below
+- Insert [MCP2542 CLICK](https://www.mikroe.com/mcp2542-click) in the microbus slot
 
-| SAM9X75-EB - 1    | SAM9X75-EB - 2    |
+- Connect SAM9X75 curiosity Board to another SAM9X75 curiosity Board through MCP2542 CLICK as per the pin connections shown below
+
+| SAM9X75_curiosity - 1    | SAM9X75_curiosity - 2    |
 | ----------------- | ------------------ |
 | CAN1_H            | CAN1_H             |
 | CAN1_L            | CAN1_L             |
 | GND               | GND                |
 |||
 
-- Connect the DBGU0 J34 on board to the computer using a UART-FTDI cable (to enable debug com port)
-- Connect the USB port J28 on board to the computer using a micro USB cable (to power the board)
+- Connect the DBGU0 J32 on board to the computer using a UART-FTDI cable (to enable debug com port)
+- Connect the USB port J2 on board to the computer using a micro USB cable (to power the board)
 
 ## Running the Application
 
