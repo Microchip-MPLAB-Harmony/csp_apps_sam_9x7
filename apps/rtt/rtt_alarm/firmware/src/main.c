@@ -60,7 +60,7 @@ void RTT_Callback(RTT_INTERRUPT_TYPE type, uintptr_t context)
 	if( type & RTT_ALARM )
 	{
         alarmTriggered = true;
-        LED_GREEN_Toggle();
+        LED_GREEN_Set();
 	}
 }
 // *****************************************************************************
