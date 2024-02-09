@@ -6,7 +6,7 @@
 		"name": "com.microchip.mcu32.mplabx.project.csp_apps_sam_9x7_led_switcher",
 		"version": "3.1.0",
 		"displayName": "RSTC interrupt Example for SAM 9x7 Family",
-		"projectName": "led_switcher_sam_9x75_eb",
+		"projectName": "led_switcher_sam_9x75_curiosity",
 		"shortDescription": "This example application shows how to use the RSTC peripheral to generate an interrupt instead of generating a reset, when the Reset switch is pressed on board.",
 		"ide": {
 			"name": "MPLABX",
@@ -40,7 +40,7 @@
 		"subcategories": [
 			[
 				"Development Kit",
-				"SAM9X75-EB Evaluation Board"
+				"SAM9X75_CURIOSITY Evaluation Board"
 			],
 			[
 				"Harmony",

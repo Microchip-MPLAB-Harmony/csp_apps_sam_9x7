@@ -27,7 +27,7 @@ To build the application, refer to the following table and open the project usin
 
 | Project Name      | Description                                    |
 | ----------------- | ---------------------------------------------- |
-| sam_9x75_eb.X | MPLABX project for [SAM9X75-EB Evaluation Board]() |
+| sam_9x75_curiosity.X | MPLABX project for [SAM9X75 CURIOSITY Board]() |
 |||
 
 ## Setting up AT91Bootstrap loader
@@ -40,10 +40,10 @@ The following table shows the target hardware for the application projects.
 
 | Project Name| Board|
 |:---------|:---------:|
-| sam_9x75_eb.X | [SAM9X75-EB Evaluation Board]() |
+| sam_9x75_curiosity.X | [SAM9X75 CURIOSITY Board]() |
 |||
 
-### Setting up [SAM9X75-EB Evaluation Board]()
+### Setting up [SAM9X75 CURIOSITY Board]()
 
 #### Addtional hardware required
 
@@ -51,14 +51,14 @@ The following table shows the target hardware for the application projects.
 
 #### Setting up the SD Card
 
-- Download harmony MPU bootstrap loader from this [location](firmware/at91bootstrap_sam_9x75_eb.X/build/binaries/boot.bin)
+- Download harmony MPU bootstrap loader from this [location](firmware/at91bootstrap_sam_9x75_curiosity.X/build/binaries/boot.bin)
 - Copy the downloaded boot loader binary( boot.bin) onto the SD card
 
 #### Setting up the board
 
 - SDMMC slot used for bootloading the application is SDMMC0 (J8)
-- Connect the DBGU0 J34 on board to the computer using a UART-FTDI cable (to enable debug com port)
-- Connect the USB port J28 on board to the computer using a micro USB cable (to power the board)
+- Connect the DBGU0 J32 on board to the computer using a UART-FTDI cable (to enable debug com port)
+- Connect the USB port J2 on board to the computer using a micro USB cable (to power the board)
 
 ## Running the Application
 
@@ -72,7 +72,7 @@ The following table shows the target hardware for the application projects.
     - Parity : None
     - Stop : 1 Bit
     - Flow Control : None
-6. Disconnect and reconnect the USB port (J28) to power cycle the board
+6. Disconnect and reconnect the USB port (J2) to power cycle the board
 7. Console displays following message:
 
     ![output_1](images/rstc_led_switcher_output1.png)
@@ -87,6 +87,6 @@ Refer to the following table for LED name:
 
 | Board      | LED Name                                    |
 | ----------------- | ---------------------------------------------- |
-| [SAM9X75-EB Evaluation Board]() | RGB_LED toggles between green and blue color for every switch press  |
+| [SAM9X75 CURIOSITY Board]() | RGB_LED toggles between green and blue color for every switch press  |
 |||
 
