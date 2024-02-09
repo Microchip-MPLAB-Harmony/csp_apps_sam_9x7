@@ -5,9 +5,9 @@
 		"metaDataVersion": "1.1.0",
 		"name": "com.microchip.mcu32.mplabx.project.csp_apps_sam_9x7_adc_automatic_window_comparison",
 		"version": "3.1.0",
-		"displayName": "ADC automatic window comparison Example for SAM 9x7 Family",
-		"projectName": "adc_automatic_window_comparison_sam_9x75_eb",
-		"shortDescription": "This example application shows how to sample an analog input in polled mode and send the converted data to console using automatic window comparison of converted values.",
+		"displayName": "ADC automatic window sam_9x75_curiosity Example for SAM 9x7 Family",
+		"projectName": "adc_automatic_window_comparison_sam_9x75_curiosity",
+		"shortDescription": "This example application shows how to sample an analog input in polled mode and send the converted data to console using automatic window sam_9x75_curiosity of converted values.",
 		"ide": {
 			"name": "MPLABX",
 			"semverRange": ">=6.5.0"
@@ -40,7 +40,7 @@
 		"subcategories": [
 			[
 				"Development Kit",
-				"SAM9X75-EB Evaluation Board"
+				"SAM9X75_CURIOSITY Evaluation Board"
 			],
 			[
 				"Harmony",

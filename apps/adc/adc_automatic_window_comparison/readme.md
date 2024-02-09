@@ -1,19 +1,19 @@
 ---
 parent: Harmony 3 peripheral library application examples for SAM9X7 family
-title: ADC automatic window comparison 
+title: ADC automatic window sam_9x75_curiosity 
 has_children: false
 has_toc: false
 ---
 
 [![MCHP](https://www.microchip.com/ResourcePackages/Microchip/assets/dist/images/logo.png)](https://www.microchip.com)
 
-# ADC automatic window comparison
+# ADC automatic window sam_9x75_curiosity
 
-This example application shows how to sample an analog input in polled mode and send the converted data to console using automatic window comparison of converted values.
+This example application shows how to sample an analog input in polled mode and send the converted data to console using automatic window sam_9x75_curiosity of converted values.
 
 ## Description
 
-This example application shows how to use the ADC Peripheral library to perform automatic window comparison of converted values.
+This example application shows how to use the ADC Peripheral library to perform automatic window sam_9x75_curiosity of converted values.
 
 The ADC peripheral is configured to operate in window mode. In this example, Analog input voltage in the range of 0 V to 3.3 V is fed to the ADC input channel AD6. The ADC conversion is triggered by software and converted result is displayed on the console whenever input voltage goes below window lower threshold.
 
@@ -28,7 +28,7 @@ To build the application, refer to the following table and open the project usin
 
 | Project Name      | Description                                    |
 | ----------------- | ---------------------------------------------- |
-| sam_9x75_eb.X | MPLABX project for [SAM9X75-EB Evaluation Board]() |
+| sam_9x75_curiosity.X | MPLABX project for [SAM9X75_CURIOSITY Evaluation Board]() |
 |||
 
 ## Setting up AT91Bootstrap loader
@@ -41,16 +41,16 @@ The following table shows the target hardware for the application projects.
 
 | Project Name| Board|
 |:---------|:---------:|
-| sam_9x75_eb.X | [SAM9X75-EB Evaluation Board]() |
+| sam_9x75_curiosity.X | [SAM9X75_CURIOSITY Evaluation Board]() |
 |||
 
-### Setting up [SAM9X75-EB Evaluation Board]()
+### Setting up [SAM9X75_CURIOSITY Evaluation Board]()
 
 #### Setting up the board
 
-- Connect the DBGU0 J34 on board to the computer using a UART-FTDI cable (to enable debug com port)
-- Connect the USB port J28 on board to the computer using a micro USB cable (to power the board)
-- Use a jumper wire to connect Pin AN of mikroBUS (AD6 is mapped to Port Pin PA30) to 3.3 V or GND (OR Use Potentiometer to vary input voltage from GND to 3.3 V and vice-versa)
+- Connect the DBGU0 J32 on board to the computer using a UART-FTDI cable (to enable debug com port)
+- Connect the USB port J2 on board to the computer using a micro USB cable (to power the board)
+- Use a jumper wire to connect Pin AN of mikroBUS (AD6 is mapped to Port Pin PA31) to 3.3 V or GND (OR Use Potentiometer to vary input voltage from GND to 3.3 V and vice-versa)
 
 ## Running the Application
 

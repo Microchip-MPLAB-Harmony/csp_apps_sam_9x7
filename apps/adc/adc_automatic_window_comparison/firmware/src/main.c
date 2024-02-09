@@ -74,7 +74,7 @@ int main ( void )
     SYS_Initialize ( NULL );
     
     printf("\n\r---------------------------------------------------------");
-    printf("\n\r           ADC Automatic Window Comparison Demo             ");
+    printf("\n\r           ADC Automatic Window sam_9x75_curiosity Demo             ");
     printf("\n\r---------------------------------------------------------\n\r");
 
     /* Start ADC conversion */
