@@ -65,7 +65,7 @@ extern "C" {
 // DOM-IGNORE-END
 
 /* Device Information */
-#define DEVICE_NAME			 "SAM9X75"
+#define DEVICE_NAME			 "SAM9X75D2G"
 #define DEVICE_ARCH			 "ARM926EJ-S"
 #define DEVICE_FAMILY		 "SAM9"
 #define DEVICE_SERIES		 "SAM9X7"

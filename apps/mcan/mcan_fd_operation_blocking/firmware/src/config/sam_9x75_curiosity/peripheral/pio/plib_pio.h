@@ -62,15 +62,6 @@
 // *****************************************************************************
 
 
-/*** Macros for STANDBY pin ***/
-#define STANDBY_Set()               (PIOA_REGS->PIO_SODR = (1<<31))
-#define STANDBY_Clear()             (PIOA_REGS->PIO_CODR = (1<<31))
-#define STANDBY_Toggle()            (PIOA_REGS->PIO_ODSR ^= (1<<31))
-#define STANDBY_OutputEnable()      (PIOA_REGS->PIO_OER = (1<<31))
-#define STANDBY_InputEnable()       (PIOA_REGS->PIO_ODR = (1<<31))
-#define STANDBY_Get()               ((PIOA_REGS->PIO_PDSR >> 31) & 0x1)
-#define STANDBY_PIN                  PIO_PIN_PA31
-
 
 // *****************************************************************************
 /* PIO Port

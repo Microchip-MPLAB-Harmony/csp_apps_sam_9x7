@@ -26,7 +26,7 @@ To build the application, refer to the following table and open the project usin
 
 | Project Name      | Description                                    |
 | ----------------- | ---------------------------------------------- |
-| sam_9x75_eb.X | MPLABX project for [SAM9X75-EB Evaluation Board]() |
+| sam_9x75_curiosity.X | MPLABX project for [SAM9X75 CURIOSITY Board]() |
 |||
 
 ## Setting up AT91Bootstrap loader
@@ -39,32 +39,32 @@ The following table shows the target hardware for the application projects.
 
 | Project Name| Board|
 |:---------|:---------:|
-| sam_9x75_eb.X | [SAM9X75-EB Evaluation Board]() |
+| sam_9x75_curiosity.X | [SAM9X75 CURIOSITY Board]() |
 |||
 
-### Setting up [SAM9X75-EB Evaluation Board]()
+### Setting up [SAM9X75 CURIOSITY Board]()
 
 #### Hardware required
 
 | Name |Quantity |
 | -------- | ------- |
-| [SAM9X75-EB Evaluation Board]() | 2 |
+| [SAM9X75 CURIOSITY Board]() | 2 |
 |||
 
 
 #### Setting up the board
 
-- Connect SAM9X75-EB Evaluation Board to another SAM9X75-EB Evaluation Board as per the pin connections shown below
+- Connect SAM9X75 CURIOSITY Board to another SAM9X75 CURIOSITY Board as per the pin connections shown below
 
-| SAM9X75-EB - 1    | SAM9X75-EB - 2    |
+| SAM9X75_CURIOSITY - 1    | SAM9X75_CURIOSITY - 2    |
 | ----------------- | ------------------ |
 | CAN1_H            | CAN1_H             |
 | CAN1_L            | CAN1_L             |
 | GND               | GND                |
 |||
 
-- Connect the DBGU0 J34 on board to the computer using a UART-FTDI cable (to enable debug com port)
-- Connect the USB port J28 on board to the computer using a micro USB cable (to power the board)
+- Connect the DBGU0 J32 on board to the computer using a UART-FTDI cable (to enable debug com port)
+- Connect the USB port J2 on board to the computer using a micro USB cable (to power the board)
 
 ## Running the Application
 
