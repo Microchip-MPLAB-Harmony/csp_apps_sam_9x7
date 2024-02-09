@@ -6,7 +6,7 @@
 		"name": "com.microchip.mcu32.mplabx.project.csp_apps_sam_9x7_pio_led_on_off_interrupt",
 		"version": "3.1.0",
 		"displayName": "PIO interrupt Example for SAM 9x7 Family",
-		"projectName": "pio_led_on_off_interrupt_sam_9x75_eb",
+		"projectName": "pio_led_on_off_interrupt_sam_9x75_curiosity",
 		"shortDescription": "This example application shows how to generate GPIO interrupt on switch press and release, and indicate the switch status using the LED.",
 		"ide": {
 			"name": "MPLABX",
