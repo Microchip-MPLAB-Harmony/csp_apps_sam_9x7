@@ -1,5 +1,5 @@
 /*
- * Peripheral I/O description for SAM9X75
+ * Peripheral I/O description for SAM9X75D2G
  *
  * Copyright (c) 2023 Microchip Technology Inc. and its subsidiaries.
  *
@@ -20,9 +20,9 @@
  *
  */
 
-/* file generated from device description version 2023-01-20T08:33:39Z */
-#ifndef _SAM9X75_GPIO_H_
-#define _SAM9X75_GPIO_H_
+/* file generated from device description version 2023-01-20T08:33:41Z */
+#ifndef _SAM9X75D2G_GPIO_H_
+#define _SAM9X75D2G_GPIO_H_
 
 /* ========== Peripheral I/O pin numbers ========== */
 #define PIN_PA0                     (    0)  /**< Pin Number for PA0 */
@@ -990,5 +990,5 @@
 #define MUX_PC13C_TC1_TIOB5                        _UINT32_(2)  /**< TC1 signal line function value: TC1_TIOB5 */
 #define PIO_PC13C_TC1_TIOB5                        (_UINT32_(1) << 13) /**< TC1 signal: TC1_TIOB5 */
 
-#endif /* _SAM9X75_GPIO_H_ */
+#endif /* _SAM9X75D2G_GPIO_H_ */
 
