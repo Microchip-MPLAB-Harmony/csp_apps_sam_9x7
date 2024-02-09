@@ -28,7 +28,7 @@ To build the application, refer to the following table and open the project usin
 
 | Project Name      | Description                                    |
 | ----------------- | ---------------------------------------------- |
-| sam_9x75_curiosity.X | MPLABX project for [SAM9X75_CURIOSITY Evaluation Board]() |
+| sam_9x75_curiosity.X | MPLABX project for [SAM9X75 CURIOSITY Board]() |
 |||
 
 ## Setting up AT91Bootstrap loader
@@ -41,10 +41,10 @@ The following table shows the target hardware for the application projects.
 
 | Project Name| Board|
 |:---------|:---------:|
-| sam_9x75_curiosity.X | [SAM9X75_CURIOSITY Evaluation Board]() |
+| sam_9x75_curiosity.X | [SAM9X75 CURIOSITY Board]() |
 |||
 
-### Setting up [SAM9X75_CURIOSITY Evaluation Board]()
+### Setting up [SAM9X75 CURIOSITY Board]()
 
 #### Setting up the board
 
