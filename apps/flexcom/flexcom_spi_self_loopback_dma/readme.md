@@ -27,7 +27,7 @@ To build the application, refer to the following table and open the project usin
 
 | Project Name      | Description                                    |
 | ----------------- | ---------------------------------------------- |
-| sam_9x75_eb.X | MPLABX project for [SAM9X75-EB Evaluation Board]() |
+| sam_9x75_curiosity.X | MPLABX project for [SAM9X75 CURIOSITY Board]() |
 |||
 
 ## Setting up AT91Bootstrap loader
@@ -40,18 +40,18 @@ The following table shows the target hardware for the application projects.
 
 | Project Name| Board|
 |:---------|:---------:|
-| sam_9x75_eb.X | [SAM9X75-EB Evaluation Board]() |
+| sam_9x75_curiosity.X | [SAM9X75 CURIOSITY Board]() |
 |||
 
-### Setting up [SAM9X75-EB Evaluation Board]()
+### Setting up [SAM9X75 CURIOSITY Board]()
 
 #### Setting up the board
 
 - Use jumper wire to Connect "MOSI of mikroBUS Connector" to "MISO of mikroBUS Connector"
   - FLEXCOM5 MOSI signal is mapped to PA16 that is routed to "Pin 6 of mikroBUS Connector"
   - FLEXCOM5 MISO signal is mapped to PA15 that is routed to "Pin 5 of mikroBUS Connector"
-- Connect the DBGU0 J34 on board to the computer using a UART-FTDI cable (to enable debug com port)
-- Connect the USB port J28 on board to the computer using a micro USB cable (to power the board)
+- Connect the DBGU0 J32 on board to the computer using a UART-FTDI cable (to enable debug com port)
+- Connect the USB port J2 on board to the computer using a micro USB cable (to power the board)
 
 ## Running the Application
 
@@ -63,5 +63,5 @@ Following table provides the LED name:
 
 | Board      | LED Name                                    |
 | ----------------- | ---------------------------------------------- |
-| [SAM9X75-EB Evaluation Board]() | RGB_LED(Green)  |
+| [SAM9X75 CURIOSITY Board]() | RGB_LED(Green)  |
 |||
