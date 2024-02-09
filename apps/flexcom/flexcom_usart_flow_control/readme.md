@@ -13,7 +13,7 @@ This example application shows how to use the flexcom module in USART flow contr
 
 ## Description
 
-This application configures FLEXCOM5 in non-blocking mode and FLEXCOM7 in blocking mode. FLEXCOM5 is used for data transmission and FLEXCOM7 is used for receiption. The TX line of FLEXCOM5 is connected to the RX line of FLEXCOM7. The RTS line of FLEXCOM7 is connected to the CTS line of FLEXCOM5. FLEXCOM5 transmits 100 characters using interrupts. Application however simulates a slow receiver by inserting a delay after each character is read on FLEXCOM7. As a result, once the RX FIFO is full, the RTS line is de-asserted and transmitter (FLEXCOM5) stops sending the data. Eventually, when the receiver reads out sufficient number of bytes from the RX FIFO, such that the
+This application configures FLEXCOM3 in non-blocking mode and FLEXCOM1 in blocking mode. FLEXCOM3 is used for data transmission and FLEXCOM1 is used for receiption. The TX line of FLEXCOM3 is connected to the RX line of FLEXCOM1. The RTS line of FLEXCOM1 is connected to the CTS line of FLEXCOM3. FLEXCOM3 transmits 100 characters using interrupts. Application however simulates a slow receiver by inserting a delay after each character is read on FLEXCOM1. As a result, once the RX FIFO is full, the RTS line is de-asserted and transmitter (FLEXCOM3) stops sending the data. Eventually, when the receiver reads out sufficient number of bytes from the RX FIFO, such that the
 number of bytes in the FIFO goes below RXFTHRES2, the RTS line is again asserted and the transmitter continues sending the data. The demo application indicates success if the received data matches the transmitted data.
 
 ## Downloading and building the application
@@ -27,7 +27,7 @@ To build the application, refer to the following table and open the project usin
 
 | Project Name      | Description                                    |
 | ----------------- | ---------------------------------------------- |
-| sam_9x75_eb.X | MPLABX project for [SAM9X75-EB Evaluation Board]() |
+| sam_9x75_curiosity.X | MPLABX project for [SAM9X75 CURIOSITY Board]() |
 |||
 
 ## Setting up AT91Bootstrap loader
@@ -40,18 +40,18 @@ The following table shows the target hardware for the application projects.
 
 | Project Name| Board|
 |:---------|:---------:|
-| sam_9x75_eb.X | [SAM9X75-EB Evaluation Board]() |
+| sam_9x75_curiosity.X | [SAM9X75 CURIOSITY Board]() |
 |||
 
-### Setting up [SAM9X75-EB Evaluation Board]()
+### Setting up [SAM9X75 CURIOSITY Board]()
 
 #### Setting up the board
 
-- Connect the DBGU0 J34 on board to the computer using a UART-FTDI cable (to enable debug com port)
-- Connect the USB port J28 on board to the computer using a micro USB cable (to power the board)
+- Connect the DBGU0 J32 on board to the computer using a UART-FTDI cable (to enable debug com port)
+- Connect the USB port J2 on board to the computer using a micro USB cable (to power the board)
 - Make connections as following:
-    - Short PIN 6 (PA16, FLEXCOM5 TXD) on mikroBUS connector to the PIN 12 (PC1, FLEXCOM7 RXD) on mikroBUS connector
-    - Short PIN 3 (PA14, FLEXCOM5 CTS) on mikroBUS connector to the PIN 4 (PD2, FLEXCOM7 RTS) on J9 connector
+    - Short PIN 6 (PC22, FLEXCOM5 TXD) on mikroBUS connector to the PIN 11 (PA29, FLEXCOM1 RXD) on mikroBUS connector
+    - Short PIN 5 (PC23, FLEXCOM1 CTS) on mikroBUS connector to the PIN 4 (PA28, FLEXCOM1 RTS) on mikroBUS connector
 
 ## Running the Application
 
@@ -62,5 +62,5 @@ Refer to the following table for LED name:
 
 | Board      | LED Name                                    |
 | ----------------- | ---------------------------------------------- |
-| [SAM9X75-EB Evaluation Board]() | RGB_LED(Green)  |
+| [SAM9X75 CURIOSITY Board]() | RGB_LED(Green)  |
 |||

@@ -98,14 +98,14 @@ int main ( void )
     */
 
     /* Transmit in interrupt mode */
-    FLEXCOM5_USART_Write(txData, NUM_TX_RX_BYTES);
+    FLEXCOM3_USART_Write(txData, NUM_TX_RX_BYTES);
 
     /* Simulate a slow receiver. Read character by character with delay between each character */
     while (nBytesRead < NUM_TX_RX_BYTES)
     {
-        while (FLEXCOM7_USART_ReceiverIsReady() == false);
+        while (FLEXCOM1_USART_ReceiverIsReady() == false);
 
-        FLEXCOM7_USART_Read(&rxData[nBytesRead], 1);
+        FLEXCOM1_USART_Read(&rxData[nBytesRead], 1);
 
         nBytesRead += 1;
 
