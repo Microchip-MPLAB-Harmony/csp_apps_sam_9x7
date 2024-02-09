@@ -1,27 +1,27 @@
 files:
 - generatedChecksum: 6FB632CFBE9592AC014B65AFBA27AFE8
-  logicalPath: config/sam_9x75_eb
+  logicalPath: config/sam_9x75_curiosity
   name: cstartup.S
   physicalPath: ''
   security: NON_SECURE
   type: SOURCE
   userChecksum: 6FB632CFBE9592AC014B65AFBA27AFE8
 - generatedChecksum: B2428EF8CAFD595BE67DA79F97846644
-  logicalPath: config/sam_9x75_eb
+  logicalPath: config/sam_9x75_curiosity
   name: fault_handlers.c
   physicalPath: ''
   security: NON_SECURE
   type: SOURCE
   userChecksum: B2428EF8CAFD595BE67DA79F97846644
 - generatedChecksum: BAB009AD65D034005CAAEB6ACC88EC91
-  logicalPath: config/sam_9x75_eb
+  logicalPath: config/sam_9x75_curiosity
   name: initialization.c
   physicalPath: ''
   security: NON_SECURE
   type: SOURCE
   userChecksum: BAB009AD65D034005CAAEB6ACC88EC91
 - generatedChecksum: 716717302590249483134405EDCDC80D
-  logicalPath: config/sam_9x75_eb
+  logicalPath: config/sam_9x75_curiosity
   name: interrupts.c
   physicalPath: ''
   security: NON_SECURE
@@ -35,42 +35,42 @@ files:
   type: SOURCE
   userChecksum: null
 - generatedChecksum: B53D838F0AEDE74C702C8A71AAD5FB88
-  logicalPath: config/sam_9x75_eb/peripheral/aic
+  logicalPath: config/sam_9x75_curiosity/peripheral/aic
   name: plib_aic.c
   physicalPath: peripheral/aic
   security: NON_SECURE
   type: SOURCE
   userChecksum: B53D838F0AEDE74C702C8A71AAD5FB88
 - generatedChecksum: 388232DB61C01D5286FAEF0065558ED7
-  logicalPath: config/sam_9x75_eb/peripheral/clk
+  logicalPath: config/sam_9x75_curiosity/peripheral/clk
   name: plib_clk.c
   physicalPath: peripheral/clk
   security: NON_SECURE
   type: SOURCE
   userChecksum: 388232DB61C01D5286FAEF0065558ED7
 - generatedChecksum: 2AB63CA98B092BF6598CF05A40CEF3BA
-  logicalPath: config/sam_9x75_eb/peripheral/dbgu
+  logicalPath: config/sam_9x75_curiosity/peripheral/dbgu
   name: plib_dbgu.c
   physicalPath: peripheral/dbgu
   security: NON_SECURE
   type: SOURCE
   userChecksum: 2AB63CA98B092BF6598CF05A40CEF3BA
 - generatedChecksum: 0F16A3544A8956EEC71B5F2CC92882C5
-  logicalPath: config/sam_9x75_eb/peripheral/mmu
+  logicalPath: config/sam_9x75_curiosity/peripheral/mmu
   name: plib_mmu.c
   physicalPath: peripheral/mmu
   security: NON_SECURE
   type: SOURCE
   userChecksum: 0F16A3544A8956EEC71B5F2CC92882C5
 - generatedChecksum: 848C03B4FB98A98BC88E00FA8F1260BC
-  logicalPath: config/sam_9x75_eb/peripheral/pio
+  logicalPath: config/sam_9x75_curiosity/peripheral/pio
   name: plib_pio.c
   physicalPath: peripheral/pio
   security: NON_SECURE
   type: SOURCE
   userChecksum: 848C03B4FB98A98BC88E00FA8F1260BC
 - generatedChecksum: 71352EF41F6688AD8408E42970B50B66
-  logicalPath: config/sam_9x75_eb/stdio
+  logicalPath: config/sam_9x75_curiosity/stdio
   name: xc32_monitor.c
   physicalPath: stdio
   security: NON_SECURE
@@ -147,7 +147,7 @@ files:
   type: HEADER
   userChecksum: 1AF12533F095CF9BC9249C8DAE9E2FD9
 - generatedChecksum: 8B35997040E0D61B0C62411FF7C4E9C1
-  logicalPath: config/sam_9x75_eb/peripheral/mmu
+  logicalPath: config/sam_9x75_curiosity/peripheral/mmu
   name: cp15.h
   physicalPath: peripheral/mmu
   security: NON_SECURE
@@ -189,21 +189,21 @@ files:
   type: HEADER
   userChecksum: 5C67AAD7BFA157D88BFD1FCA2BDA9474
 - generatedChecksum: F10F481255853499C5A723613153B55A
-  logicalPath: config/sam_9x75_eb
+  logicalPath: config/sam_9x75_curiosity
   name: definitions.h
   physicalPath: ''
   security: NON_SECURE
   type: HEADER
   userChecksum: F10F481255853499C5A723613153B55A
 - generatedChecksum: 0F469C464F9014513B3CBA64F41689EF
-  logicalPath: config/sam_9x75_eb
+  logicalPath: config/sam_9x75_curiosity
   name: device.h
   physicalPath: ''
   security: NON_SECURE
   type: HEADER
   userChecksum: 0F469C464F9014513B3CBA64F41689EF
 - generatedChecksum: 7254700FC13F4B4E1929CADEB2F317FE
-  logicalPath: config/sam_9x75_eb
+  logicalPath: config/sam_9x75_curiosity
   name: device_cache.h
   physicalPath: ''
   security: NON_SECURE
@@ -371,7 +371,7 @@ files:
   type: HEADER
   userChecksum: 276D73314C964DE8500529564489B5DB
 - generatedChecksum: 4CF4A86296482D5331331BA301C20BB2
-  logicalPath: config/sam_9x75_eb
+  logicalPath: config/sam_9x75_curiosity
   name: interrupts.h
   physicalPath: ''
   security: NON_SECURE
@@ -546,42 +546,42 @@ files:
   type: HEADER
   userChecksum: C7A39D03BBD712D1937F7D2F2F974EE8
 - generatedChecksum: 9C00DC189B706ECF854F34A404F89118
-  logicalPath: config/sam_9x75_eb/peripheral/aic
+  logicalPath: config/sam_9x75_curiosity/peripheral/aic
   name: plib_aic.h
   physicalPath: peripheral/aic
   security: NON_SECURE
   type: HEADER
   userChecksum: 9C00DC189B706ECF854F34A404F89118
 - generatedChecksum: AAF25003E9FEFE426B68FC50E94AC101
-  logicalPath: config/sam_9x75_eb/peripheral/clk
+  logicalPath: config/sam_9x75_curiosity/peripheral/clk
   name: plib_clk.h
   physicalPath: peripheral/clk
   security: NON_SECURE
   type: HEADER
   userChecksum: AAF25003E9FEFE426B68FC50E94AC101
 - generatedChecksum: 327EA13E2578704B15CF13B4EA4B859D
-  logicalPath: config/sam_9x75_eb/peripheral/dbgu
+  logicalPath: config/sam_9x75_curiosity/peripheral/dbgu
   name: plib_dbgu.h
   physicalPath: peripheral/dbgu
   security: NON_SECURE
   type: HEADER
   userChecksum: 327EA13E2578704B15CF13B4EA4B859D
 - generatedChecksum: 06E8E08E593F2C4AA01DAE7161B43F1E
-  logicalPath: config/sam_9x75_eb/peripheral/dbgu
+  logicalPath: config/sam_9x75_curiosity/peripheral/dbgu
   name: plib_dbgu_common.h
   physicalPath: peripheral/dbgu
   security: NON_SECURE
   type: HEADER
   userChecksum: 06E8E08E593F2C4AA01DAE7161B43F1E
 - generatedChecksum: 53692CB5F4391E126593D39BD431C323
-  logicalPath: config/sam_9x75_eb/peripheral/mmu
+  logicalPath: config/sam_9x75_curiosity/peripheral/mmu
   name: plib_mmu.h
   physicalPath: peripheral/mmu
   security: NON_SECURE
   type: HEADER
   userChecksum: 53692CB5F4391E126593D39BD431C323
 - generatedChecksum: 3C843142B5C6CC0B2CD687E083660282
-  logicalPath: config/sam_9x75_eb/peripheral/pio
+  logicalPath: config/sam_9x75_curiosity/peripheral/pio
   name: plib_pio.h
   physicalPath: peripheral/pio
   security: NON_SECURE
@@ -882,7 +882,7 @@ files:
   type: HEADER
   userChecksum: E6BDDE1501317792EB335C983C11808F
 - generatedChecksum: EA65AE931A8E88FC5A5B521D2B854EFE
-  logicalPath: config/sam_9x75_eb
+  logicalPath: config/sam_9x75_curiosity
   name: toolchain_specifics.h
   physicalPath: ''
   security: NON_SECURE
@@ -980,7 +980,7 @@ files:
   type: HEADER
   userChecksum: 378DA13FD9530248C93D748013E15FE3
 - generatedChecksum: 86A29E0F317D4CB080D668C08E762479
-  logicalPath: config/sam_9x75_eb
+  logicalPath: config/sam_9x75_curiosity
   name: ddram.ld
   physicalPath: ''
   security: NON_SECURE
@@ -1001,7 +1001,7 @@ settings:
   delimiter: ;
   key: extra-include-directories
   security: NON_SECURE
-  value: ../src;../src/config/sam_9x75_eb;../src/packs/SAM9X75_DFP;
+  value: ../src;../src/config/sam_9x75_curiosity;../src/packs/SAM9X75_DFP;
 - append: false
   category: C32-LD
   delimiter: ''
@@ -1025,5 +1025,5 @@ settings:
   delimiter: ;
   key: extra-include-directories
   security: NON_SECURE
-  value: ../src;../src/config/sam_9x75_eb;../src/packs/SAM9X75_DFP;
+  value: ../src;../src/config/sam_9x75_curiosity;../src/packs/SAM9X75_DFP;
 sourcePaths: []
