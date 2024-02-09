@@ -6,7 +6,7 @@
 		"name": "com.microchip.mcu32.mplabx.project.csp_apps_sam_9x7_random_number",
 		"version": "3.1.0",
 		"displayName": "TRNG random number Example for SAM 9x7 Family",
-		"projectName": "random_number_sam_9x75_eb",
+		"projectName": "random_number_sam_9x75_curiosity",
 		"shortDescription": "This example application shows how to use the TRNG Peripheral library to generate and read a random number.",
 		"ide": {
 			"name": "MPLABX",
@@ -40,7 +40,7 @@
 		"subcategories": [
 			[
 				"Development Kit",
-				"SAM9X75-EB Evaluation Board"
+				"SAM9X75_CURIOSITY Evaluation Board"
 			],
 			[
 				"Harmony",

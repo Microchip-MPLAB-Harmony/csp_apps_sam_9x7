@@ -63,15 +63,15 @@
 
 
 /*** Macros for USER_BUTTON pin ***/
-#define USER_BUTTON_Set()               (PIOC_REGS->PIO_SODR = (1<<24))
-#define USER_BUTTON_Clear()             (PIOC_REGS->PIO_CODR = (1<<24))
-#define USER_BUTTON_Toggle()            (PIOC_REGS->PIO_ODSR ^= (1<<24))
-#define USER_BUTTON_OutputEnable()      (PIOC_REGS->PIO_OER = (1<<24))
-#define USER_BUTTON_InputEnable()       (PIOC_REGS->PIO_ODR = (1<<24))
-#define USER_BUTTON_Get()               ((PIOC_REGS->PIO_PDSR >> 24) & 0x1)
-#define USER_BUTTON_PIN                  PIO_PIN_PC24
-#define USER_BUTTON_InterruptEnable()   (PIOC_REGS->PIO_IER = (1<<24))
-#define USER_BUTTON_InterruptDisable()  (PIOC_REGS->PIO_IDR = (1<<24))
+#define USER_BUTTON_Set()               (PIOC_REGS->PIO_SODR = ((uint32_t)1U<<9U))
+#define USER_BUTTON_Clear()             (PIOC_REGS->PIO_CODR = ((uint32_t)1U<<9U))
+#define USER_BUTTON_Toggle()            (PIOC_REGS->PIO_ODSR ^= ((uint32_t)1U<<9U))
+#define USER_BUTTON_OutputEnable()      (PIOC_REGS->PIO_OER = ((uint32_t)1U<<9U))
+#define USER_BUTTON_InputEnable()       (PIOC_REGS->PIO_ODR = ((uint32_t)1U<<9U))
+#define USER_BUTTON_Get()               ((PIOC_REGS->PIO_PDSR >> 9U) & 0x1U)
+#define USER_BUTTON_PIN                  PIO_PIN_PC9
+#define USER_BUTTON_InterruptEnable()   (PIOC_REGS->PIO_IER = (1<<9))
+#define USER_BUTTON_InterruptDisable()  (PIOC_REGS->PIO_IDR = (1<<9))
 
 
 // *****************************************************************************

@@ -98,8 +98,8 @@ void PIO_Initialize ( void )
     /* PORTB Output Write Enable */
     ((pio_registers_t*)PIO_PORT_B)->PIO_OWER = PIO_OWER_Msk;
     /* PORTB Output Direction Enable */
-    ((pio_registers_t*)PIO_PORT_B)->PIO_OER = 0x0U;
-    ((pio_registers_t*)PIO_PORT_B)->PIO_ODR = ~0x0U;
+    ((pio_registers_t*)PIO_PORT_B)->PIO_OER = 0x200000U;
+    ((pio_registers_t*)PIO_PORT_B)->PIO_ODR = ~0x200000U;
     /* Initialize PORTB pin state */
     ((pio_registers_t*)PIO_PORT_B)->PIO_ODSR = 0x0U;
     /* PORTB Slew rate control */
@@ -122,9 +122,9 @@ void PIO_Initialize ( void )
     /* Initialize PORTC pin state */
     ((pio_registers_t*)PIO_PORT_C)->PIO_ODSR = 0x0U;
     /* PORTC Additional interrupt mode Enable */
-    ((pio_registers_t*)PIO_PORT_C)->PIO_AIMER = 0x1000000U;
+    ((pio_registers_t*)PIO_PORT_C)->PIO_AIMER = 0x200U;
     /* PORTC Rising Edge or High Level Interrupt Enable */
-    ((pio_registers_t*)PIO_PORT_C)->PIO_REHLSR = 0x1000000U;
+    ((pio_registers_t*)PIO_PORT_C)->PIO_REHLSR = 0x200U;
     /* PORTC Interrupt Status Clear */
     ((pio_registers_t*)PIO_PORT_C)->PIO_ISR;
     /* PORTC system level interrupt will be enabled by NVIC Manager */
@@ -156,7 +156,7 @@ void PIO_Initialize ( void )
 
     uint32_t i;
     /* Initialize Interrupt Pin data structures */
-    portPinCbObj[0 + 0].pin = PIO_PIN_PC24;
+    portPinCbObj[0 + 0].pin = PIO_PIN_PC9;
     
     for(i=0U; i<1U; i++)
     {
