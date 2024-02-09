@@ -6,7 +6,7 @@
 		"name": "com.microchip.mcu32.mplabx.project.csp_apps_sam_9x7_pio_led_on_off_polling",
 		"version": "3.1.0",
 		"displayName": "PIO polling Example for SAM 9x7 Family",
-		"projectName": "pio_led_on_off_polling_sam_9x75_eb",
+		"projectName": "pio_led_on_off_polling_sam_9x75_curiosity",
 		"shortDescription": "This example application shows how to poll the switch input, and indicate the switch status using the LED.",
 		"ide": {
 			"name": "MPLABX",

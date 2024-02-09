@@ -1,18 +1,24 @@
 /*******************************************************************************
-  System Definitions
+ System Interrupts File
+
+  Company:
+    Microchip Technology Inc.
 
   File Name:
-    definitions.h
+    interrupt.c
 
   Summary:
-    project system definitions.
+    Interrupt vectors mapping
 
   Description:
-    This file contains the system-wide prototypes and definitions for a project.
-
+    This file maps all the interrupt vectors to their corresponding
+    implementations. If a particular module interrupt is used, then its ISR
+    definition can be found in corresponding PLIB source file. If a module
+    interrupt is not used, then its ISR implementation is mapped to dummy
+    handler.
  *******************************************************************************/
 
-//DOM-IGNORE-BEGIN
+// DOM-IGNORE-BEGIN
 /*******************************************************************************
 * Copyright (C) 2018 Microchip Technology Inc. and its subsidiaries.
 *
@@ -35,108 +41,35 @@
 * ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
  *******************************************************************************/
-//DOM-IGNORE-END
-
-#ifndef DEFINITIONS_H
-#define DEFINITIONS_H
+// DOM-IGNORE-END
 
 // *****************************************************************************
 // *****************************************************************************
 // Section: Included Files
 // *****************************************************************************
 // *****************************************************************************
-#include <stdint.h>
-#include <stddef.h>
-#include <stdbool.h>
-#include "peripheral/mmu/plib_mmu.h"
-#include "peripheral/clk/plib_clk.h"
-#include "peripheral/pio/plib_pio.h"
-#include "peripheral/aic/plib_aic.h"
+#include "interrupts.h"
+#include "definitions.h"
 
-// DOM-IGNORE-BEGIN
-#ifdef __cplusplus  // Provide C++ Compatibility
 
-extern "C" {
-
-#endif
-// DOM-IGNORE-END
-
-/* Device Information */
-#define DEVICE_NAME			 "SAM9X75"
-#define DEVICE_ARCH			 "ARM926EJ-S"
-#define DEVICE_FAMILY		 "SAM9"
-#define DEVICE_SERIES		 "SAM9X7"
-
-/* CPU clock frequency */
-#define CPU_CLOCK_FREQUENCY 800000000
 
 // *****************************************************************************
 // *****************************************************************************
-// Section: System Functions
+// Section: System Interrupt Vector Functions
 // *****************************************************************************
 // *****************************************************************************
 
-// *****************************************************************************
-/* System Initialization Function
-
-  Function:
-    void SYS_Initialize( void *data )
-
-  Summary:
-    Function that initializes all modules in the system.
-
-  Description:
-    This function initializes all modules in the system, including any drivers,
-    services, middleware, and applications.
-
-  Precondition:
-    None.
-
-  Parameters:
-    data            - Pointer to the data structure containing any data
-                      necessary to initialize the module. This pointer may
-                      be null if no data is required and default initialization
-                      is to be used.
-
-  Returns:
-    None.
-
-  Example:
-    <code>
-    SYS_Initialize ( NULL );
-
-    while ( true )
-    {
-        SYS_Tasks ( );
-    }
-    </code>
-
-  Remarks:
-    This function will only be called once, after system reset.
-*/
-
-void SYS_Initialize( void *data );
-
-/* Nullify SYS_Tasks() if only PLIBs are used. */
-#define     SYS_Tasks()
-
-// *****************************************************************************
-// *****************************************************************************
-// Section: extern declarations
-// *****************************************************************************
-// *****************************************************************************
+/* Handlers for vectors that are shared by multiple interrupts */
 
 
-
-
-//DOM-IGNORE-BEGIN
-#ifdef __cplusplus
+/* Weak default handler for spurious interrupts */
+void __attribute__((weak)) SPURIOUS_INTERRUPT_Handler(void)
+{
+    static uint32_t spuriousEventCount = 0U;
+    ++spuriousEventCount;
 }
-#endif
-//DOM-IGNORE-END
 
-#endif /* DEFINITIONS_H */
+
 /*******************************************************************************
  End of File
 */
-
