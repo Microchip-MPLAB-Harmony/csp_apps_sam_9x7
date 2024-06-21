@@ -27,7 +27,7 @@ C10,PB18,,Available,In,,,,,,,,
 C11,PB26,,Available,In,,,,,,,,
 C17,PD5,,Available,In,,,,,,,,
 D1,PC20,LED_BLUE,GPIO,Out,Low,No,Disabled,No,No,Disabled,No,Low
-D2,PC22,FLEXCOM3_TXD,FLEXCOM3_IO0,n/a,n/a,No,Disabled,No,No,Disabled,No,Low
+D2,PC22,,FLEXCOM3_IO0,n/a,n/a,No,Disabled,No,No,Disabled,No,Low
 D3,PC21,LED_GREEN,GPIO,Out,Low,No,Disabled,No,No,Disabled,No,Low
 D5,PC29,,Available,In,,,,,,,,
 D7,PC31,,Available,In,,,,,,,,
@@ -38,7 +38,7 @@ D17,PB8,,Available,In,,,,,,,,
 E1,PC16,,Available,In,,,,,,,,
 E2,PC18,,Available,In,,,,,,,,
 E3,PC15,,Available,In,,,,,,,,
-E4,PC23,FLEXCOM3_CTS,FLEXCOM3_IO1,n/a,n/a,No,Disabled,No,No,Disabled,No,Low
+E4,PC23,,FLEXCOM3_IO1,n/a,n/a,No,Disabled,No,No,Disabled,No,Low
 E16,PD14,,Available,In,,,,,,,,
 E17,PB14,,Available,In,,,,,,,,
 F2,PC14,,Available,In,,,,,,,,
@@ -61,7 +61,7 @@ J17,PA4,,Available,In,,,,,,,,
 K15,PD12,,Available,In,,,,,,,,
 K16,PB10,,Available,In,,,,,,,,
 K17,PA2,,Available,In,,,,,,,,
-L5,PA29,FLEXCOM1_ RXD,FLEXCOM1_IO1,n/a,n/a,No,Disabled,No,No,Disabled,No,Low
+L5,PA29,,FLEXCOM1_IO1,n/a,n/a,No,Disabled,No,No,Disabled,No,Low
 L13,PA5,,Available,In,,,,,,,,
 L14,PA11,,Available,In,,,,,,,,
 L15,PB1,,Available,In,,,,,,,,
@@ -93,7 +93,7 @@ R16,PA21,,Available,In,,,,,,,,
 R17,PA18,,Available,In,,,,,,,,
 T1,PA27,,Available,In,,,,,,,,
 T3,PA30,,Available,In,,,,,,,,
-T4,PA28,FLEXCOM1_RTS,FLEXCOM1_IO0,n/a,n/a,No,Disabled,No,No,Disabled,No,Low
+T4,PA28,,FLEXCOM1_IO0,n/a,n/a,No,Disabled,No,No,Disabled,No,Low
 T5,PA14,,Available,In,,,,,,,,
 T7,PA7,,Available,In,,,,,,,,
 T8,PB11,,Available,In,,,,,,,,

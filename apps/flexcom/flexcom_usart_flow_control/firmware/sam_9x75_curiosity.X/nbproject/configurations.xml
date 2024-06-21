@@ -96,6 +96,7 @@
             <itemPath>../src/packs/SAM9X75D2G_DFP/component/dsi.h</itemPath>
             <itemPath>../src/packs/SAM9X75D2G_DFP/component/trng.h</itemPath>
             <itemPath>../src/packs/SAM9X75D2G_DFP/component/i2smcc.h</itemPath>
+            <itemPath>../src/packs/SAM9X75D2G_DFP/component/uhpfs.h</itemPath>
           </logicalFolder>
           <logicalFolder name="instance" displayName="instance" projectFiles="true">
             <itemPath>../src/packs/SAM9X75D2G_DFP/instance/aes.h</itemPath>
@@ -165,6 +166,8 @@
             <itemPath>../src/packs/SAM9X75D2G_DFP/instance/pmerrloc.h</itemPath>
             <itemPath>../src/packs/SAM9X75D2G_DFP/instance/flexcom0.h</itemPath>
             <itemPath>../src/packs/SAM9X75D2G_DFP/instance/xlcdc.h</itemPath>
+            <itemPath>../src/packs/SAM9X75D2G_DFP/instance/uhphs_ohci.h</itemPath>
+            <itemPath>../src/packs/SAM9X75D2G_DFP/instance/uhphs.h</itemPath>
           </logicalFolder>
           <logicalFolder name="pio" displayName="pio" projectFiles="true">
             <itemPath>../src/packs/SAM9X75D2G_DFP/pio/sam9x75d2g.h</itemPath>
@@ -317,7 +320,7 @@
       <C32>
         <property key="additional-warnings" value="true"/>
         <property key="addresss-attribute-use" value="false"/>
-        <property key="appendMe" value=""/>
+        <property key="appendMe" value="-marm"/>
         <property key="enable-app-io" value="false"/>
         <property key="enable-omit-frame-pointer" value="false"/>
         <property key="enable-symbols" value="true"/>
@@ -342,6 +345,7 @@
         <property key="use-cci" value="false"/>
         <property key="use-iar" value="false"/>
         <property key="use-indirect-calls" value="false"/>
+        <appendMe value="-marm"/>
       </C32>
       <C32-AR>
         <property key="additional-options-chop-files" value="false"/>

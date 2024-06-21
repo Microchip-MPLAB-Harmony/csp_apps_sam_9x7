@@ -71,10 +71,6 @@
 #define LED_BLUE_Get()               ((PIOC_REGS->PIO_PDSR >> 20U) & 0x1U)
 #define LED_BLUE_PIN                  PIO_PIN_PC20
 
-/*** Macros for FLEXCOM3_TXD pin ***/
-#define FLEXCOM3_TXD_Get()               ((PIOC_REGS->PIO_PDSR >> 22U) & 0x1U)
-#define FLEXCOM3_TXD_PIN                  PIO_PIN_PC22
-
 /*** Macros for LED_GREEN pin ***/
 #define LED_GREEN_Set()               (PIOC_REGS->PIO_SODR = ((uint32_t)1U<<21U))
 #define LED_GREEN_Clear()             (PIOC_REGS->PIO_CODR = ((uint32_t)1U<<21U))
@@ -84,10 +80,6 @@
 #define LED_GREEN_Get()               ((PIOC_REGS->PIO_PDSR >> 21U) & 0x1U)
 #define LED_GREEN_PIN                  PIO_PIN_PC21
 
-/*** Macros for FLEXCOM3_CTS pin ***/
-#define FLEXCOM3_CTS_Get()               ((PIOC_REGS->PIO_PDSR >> 23U) & 0x1U)
-#define FLEXCOM3_CTS_PIN                  PIO_PIN_PC23
-
 /*** Macros for LED_RED pin ***/
 #define LED_RED_Set()               (PIOC_REGS->PIO_SODR = ((uint32_t)1U<<19U))
 #define LED_RED_Clear()             (PIOC_REGS->PIO_CODR = ((uint32_t)1U<<19U))
@@ -96,14 +88,6 @@
 #define LED_RED_InputEnable()       (PIOC_REGS->PIO_ODR = ((uint32_t)1U<<19U))
 #define LED_RED_Get()               ((PIOC_REGS->PIO_PDSR >> 19U) & 0x1U)
 #define LED_RED_PIN                  PIO_PIN_PC19
-
-/*** Macros for FLEXCOM1_ RXD pin ***/
-#define FLEXCOM1_RXD_Get()               ((PIOA_REGS->PIO_PDSR >> 29U) & 0x1U)
-#define FLEXCOM1_RXD_PIN                  PIO_PIN_PA29
-
-/*** Macros for FLEXCOM1_RTS pin ***/
-#define FLEXCOM1_RTS_Get()               ((PIOA_REGS->PIO_PDSR >> 28U) & 0x1U)
-#define FLEXCOM1_RTS_PIN                  PIO_PIN_PA28
 
 
 // *****************************************************************************
