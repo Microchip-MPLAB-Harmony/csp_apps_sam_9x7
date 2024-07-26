@@ -73,7 +73,7 @@
 // Section: Data Types
 // *****************************************************************************
 // *****************************************************************************
-#define MCAN1_CLOCK_FREQUENCY    480000000U
+#define MCAN1_CLOCK_FREQUENCY    0U
 
 /* MCAN1 Message RAM Configuration Size */
 #define MCAN1_RX_FIFO0_ELEMENT_SIZE       72U
