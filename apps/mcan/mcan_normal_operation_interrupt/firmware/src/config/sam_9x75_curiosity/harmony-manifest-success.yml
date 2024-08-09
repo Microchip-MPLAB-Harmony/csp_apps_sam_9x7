@@ -14,4 +14,4 @@ harmony_version: v1.5.2
 compiler: XC32 (v4.45)
 
 modules:
-    - {name: "csp", version: "v3.19.3"}
+    - {name: "csp", version: "v3.19.4"}
