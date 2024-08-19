@@ -54,7 +54,7 @@
 #include "definitions.h"                // SYS function prototypes
 
 /*****************************************************
- ADC CH6 - PA30 - Connect to Vcc or GND
+ ADC CH7 - PA31 - Connect to Vcc or GND
  *****************************************************/
 
 #define ADC_VREF               (3.3f)
@@ -83,13 +83,13 @@ int main ( void )
         ADC_ConversionStart();
 
         /* Wait till ADC conversion result is available */
-        while(!ADC_ChannelResultIsReady(ADC_CH6))
+        while(!ADC_ChannelResultIsReady(ADC_CH7))
         {
 
         };
 
         /* Read the ADC result */
-        adc_count = ADC_ChannelResultGet(ADC_CH6);
+        adc_count = ADC_ChannelResultGet(ADC_CH7);
         input_voltage = (float)adc_count * ADC_VREF / 4095U;
 
         printf("ADC Count = 0x%03x, ADC Input Voltage = %0.2f V \r",adc_count, input_voltage);    

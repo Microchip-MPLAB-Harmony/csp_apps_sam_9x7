@@ -72,10 +72,10 @@ void ADC_Initialize(void)
     ADC_REGS->ADC_TRGR = ADC_TRGR_TRGMOD_NO_TRIGGER;
 
     /* Enable interrupt */
-    ADC_REGS->ADC_IER = ADC_IER_EOC6_Msk;
+    ADC_REGS->ADC_IER = ADC_IER_EOC7_Msk;
     ADC_CallbackObj.callback_fn = NULL;
     /* Enable channel */
-    ADC_REGS->ADC_CHER = ADC_CHER_CH6_Msk;
+    ADC_REGS->ADC_CHER = ADC_CHER_CH7_Msk;
 }
 
 /* Enable ADC channels */

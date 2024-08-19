@@ -70,7 +70,7 @@ void ADC_Initialize(void)
     ADC_REGS->ADC_TRGR = ADC_TRGR_TRGMOD_NO_TRIGGER;
 
     /* Enable channel */
-    ADC_REGS->ADC_CHER = ADC_CHER_CH6_Msk;
+    ADC_REGS->ADC_CHER = ADC_CHER_CH7_Msk;
 }
 
 /* Enable ADC channels */

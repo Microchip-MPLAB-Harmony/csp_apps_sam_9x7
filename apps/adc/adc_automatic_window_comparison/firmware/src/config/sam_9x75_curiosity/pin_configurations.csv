@@ -92,8 +92,8 @@ R14,PB9,,Available,In,,,,,,,,
 R16,PA21,,Available,In,,,,,,,,
 R17,PA18,,Available,In,,,,,,,,
 T1,PA27,,DBGU_DTXD,n/a,n/a,No,Disabled,No,No,Disabled,No,Low
-T3,PA30,,ADC_AD6,n/a,n/a,No,Disabled,No,No,Disabled,No,Low
-T4,PA28,,Available,In,,,,,,,,
+T3,PA30,,Available,In,,,,,,,,
+T4,PA28,,ADC_AD4,n/a,n/a,No,Disabled,No,No,Disabled,No,Low
 T5,PA14,,Available,In,,,,,,,,
 T7,PA7,,Available,In,,,,,,,,
 T8,PB11,,Available,In,,,,,,,,

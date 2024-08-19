@@ -74,9 +74,9 @@ extern "C" {
 /*  The following data type definitions are used by the functions in this
     interface and should be considered part it.
 */
-#define ADC_CH6_MAX_OUTPUT (4095U)
-#define ADC_CH6_MIN_OUTPUT (0U)
-#define CHANNEL_6 (6U)
+#define ADC_CH4_MAX_OUTPUT (4095U)
+#define ADC_CH4_MIN_OUTPUT (0U)
+#define CHANNEL_4 (4U)
 /***********************************************************************/
 // *****************************************************************************
 // *****************************************************************************

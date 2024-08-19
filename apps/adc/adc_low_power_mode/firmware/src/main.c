@@ -53,14 +53,14 @@
 #include "definitions.h"                // SYS function prototypes
 
 /*****************************************************
- ADC CH6 - PA30 - Connect to Vcc or GND
+ ADC CH7 - PA31 - Connect to Vcc or GND
  *****************************************************/
 
 #define ADC_VREF               (3.3f)
 
-uint16_t adc_ch6_count;
+uint16_t adc_ch7_count;
 
-float adc_ch6_voltage;
+float adc_ch7_voltage;
 
 volatile bool result_ready = false;
 
@@ -68,7 +68,7 @@ volatile bool result_ready = false;
 void ADC_EventHandler(uint32_t status, uintptr_t context)
 {
     /* Read the result of AD6 channel */
-    adc_ch6_count = ADC_ChannelResultGet(ADC_CH6);
+    adc_ch7_count = ADC_ChannelResultGet(ADC_CH7);
        
     result_ready = true;
 }
@@ -132,16 +132,16 @@ int main ( void )
             printf("\r\n");
             break;
     }
-    printf("CH6 Count  CH6 Voltage \r\n");           
+    printf("CH7 Count  CH7 Voltage \r\n");           
 
     while ( true )
     {
         /* Check if result is ready to be transmitted to console */
         if (result_ready == true)
         {
-            adc_ch6_voltage = (float)adc_ch6_count * ADC_VREF/4095U;
+            adc_ch7_voltage = (float)adc_ch7_count * ADC_VREF/4095U;
 
-            printf("0x%03x      %0.2f V       \t\r", adc_ch6_count, adc_ch6_voltage);
+            printf("0x%03x      %0.2f V       \t\r", adc_ch7_count, adc_ch7_voltage);
                 
             result_ready = false;
  
