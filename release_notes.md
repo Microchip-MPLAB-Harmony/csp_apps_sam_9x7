@@ -1,8 +1,3 @@
----
-title: Release notes
-nav_order: 99
----
-
 ![Microchip logo](https://raw.githubusercontent.com/wiki/Microchip-MPLAB-Harmony/Microchip-MPLAB-Harmony.github.io/images/microchip_logo.png)
 ![Harmony logo small](https://raw.githubusercontent.com/wiki/Microchip-MPLAB-Harmony/Microchip-MPLAB-Harmony.github.io/images/microchip_mplab_harmony_logo_small.png)
 
@@ -16,11 +11,12 @@ Following table provides number of peripheral library examples available for dif
 
 | Development Kits  | MPLAB X applications |
 |:-----------------:|:-------------------:|
-| SAM9X75-Curiosity Board  | 33 |
+| SAM9X75 Curiosity Board  | 36 |
 
 ### New Features
 
-- Migrated Applications from SAM9X75 Evaluation Board to SAM9X75 Curiosity Board
+- Migrated applications from SAM9X75 Evaluation Board to SAM9X75 Curiosity Board
+- Added example application for NAND flash
 
 ### Known Issues
 
