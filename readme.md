@@ -26,10 +26,13 @@ This content can also be downloaded using content manager by following these [in
 
 ## Code Examples
 
-Click [here](https://onlinedocs.microchip.com/v2/keyword-lookup?keyword=CSP_APPS_SAM_9X7_INTRODUCTION&redirect=true) to browse the documentation for code examples hosted in this repository.
+Click [here](https://onlinedocs.microchip.com/v2/keyword-lookup?keyword=CSP_APPS_SAM_9X7_INTRODUCTION&redirect=true) to view the online documentation of code examples hosted in this repository.
 
-Click [here](https://onlinedocs.microchip.com/v2/keyword-lookup?keyword=CSP_APPS_SAM_9X7_INTRODUCTION&redirect=true) to download the documentation as a zip file. You can then browse it offline by extracting the zip file and opening **index.html** in a web browser of your choice.
-
+To view the documentation offline, follow these steps:
+ - Download the publication as a zip file from [here](https://onlinedocs.microchip.com/download/GUID-270C6E29-0B84-4557-9BB9-8CF21183FAD7?type=webhelp).
+ - Extract the zip file into a folder.
+ - Navigate to the folder and open **index.html** in a web browser of your choice.
+ 
 ____
 
 [![License](https://img.shields.io/badge/license-Harmony%20license-orange.svg)](https://github.com/Microchip-MPLAB-Harmony/csp_apps_sam_9x7/blob/master/mplab_harmony_license.md)

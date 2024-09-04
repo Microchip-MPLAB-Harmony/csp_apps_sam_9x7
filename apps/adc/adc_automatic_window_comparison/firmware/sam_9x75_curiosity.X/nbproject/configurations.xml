@@ -178,7 +178,7 @@
                    displayName="Important Files"
                    projectFiles="true">
       <itemPath>Makefile</itemPath>
-      <itemPath>sam_9x75_curiosity.mc3</itemPath>
+      <itemPath>adc_automatic_window_comparison_sam_9x75_curiosity.mc3</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"

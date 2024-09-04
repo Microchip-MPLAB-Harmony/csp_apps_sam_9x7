@@ -175,7 +175,7 @@
                    displayName="Important Files"
                    projectFiles="true">
       <itemPath>Makefile</itemPath>
-      <itemPath>sam_9x75_curiosity.mc3</itemPath>
+      <itemPath>flexcom_twi_eeprom_sam_9x75_curiosity.mc3</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"

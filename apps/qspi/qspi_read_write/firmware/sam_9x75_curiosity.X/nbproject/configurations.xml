@@ -30,19 +30,11 @@
               <itemPath>../src/config/sam_9x75_curiosity/peripheral/qspi/plib_qspi_common.h</itemPath>
             </logicalFolder>
           </logicalFolder>
-          <logicalFolder name="system" displayName="system" projectFiles="true">
-            <logicalFolder name="cache" displayName="cache" projectFiles="true">
-              <itemPath>../src/config/sam_9x75_curiosity/system/cache/sys_cache.h</itemPath>
-            </logicalFolder>
-          </logicalFolder>
           <itemPath>../src/config/sam_9x75_curiosity/toolchain_specifics.h</itemPath>
           <itemPath>../src/config/sam_9x75_curiosity/interrupts.h</itemPath>
-          <itemPath>../src/config/sam_9x75_curiosity/sys_tasks.h</itemPath>
           <itemPath>../src/config/sam_9x75_curiosity/device.h</itemPath>
           <itemPath>../src/config/sam_9x75_curiosity/definitions.h</itemPath>
           <itemPath>../src/config/sam_9x75_curiosity/device_cache.h</itemPath>
-          <itemPath>../src/config/sam_9x75_curiosity/configuration.h</itemPath>
-          <itemPath>../src/config/sam_9x75_curiosity/user.h</itemPath>
         </logicalFolder>
       </logicalFolder>
       <logicalFolder name="packs" displayName="packs" projectFiles="true">
@@ -183,7 +175,7 @@
                    displayName="Important Files"
                    projectFiles="true">
       <itemPath>Makefile</itemPath>
-      <itemPath>sam_9x75_curiosity.mc3</itemPath>
+      <itemPath>qspi_read_write_sam_9x75_curiosity.mc3</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -226,23 +218,20 @@
           <logicalFolder name="stdio" displayName="stdio" projectFiles="true">
             <itemPath>../src/config/sam_9x75_curiosity/stdio/xc32_monitor.c</itemPath>
           </logicalFolder>
-          <logicalFolder name="system" displayName="system" projectFiles="true">
-            <logicalFolder name="cache" displayName="cache" projectFiles="true">
-              <itemPath>../src/config/sam_9x75_curiosity/system/cache/sys_cache.c</itemPath>
-            </logicalFolder>
-          </logicalFolder>
           <itemPath>../src/config/sam_9x75_curiosity/fault_handlers.c</itemPath>
           <itemPath>../src/config/sam_9x75_curiosity/interrupts.c</itemPath>
           <itemPath>../src/config/sam_9x75_curiosity/cstartup.S</itemPath>
           <itemPath>../src/config/sam_9x75_curiosity/initialization.c</itemPath>
-          <itemPath>../src/config/sam_9x75_curiosity/tasks.c</itemPath>
         </logicalFolder>
       </logicalFolder>
       <itemPath>../src/main.c</itemPath>
-      <itemPath>../src/app.c</itemPath>
       <itemPath>../src/config/sam_9x75_curiosity/pin_configurations.csv</itemPath>
+      <itemPath>../src/app.c</itemPath>
     </logicalFolder>
   </logicalFolder>
+  <sourceRootList>
+    <Elem>../src</Elem>
+  </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
     <conf name="sam_9x75_curiosity" type="2">
@@ -264,7 +253,7 @@
         <ScriptingSetting key="boot.use" value="true"/>
         <ScriptingSetting key="boot.entry_adr" value=""/>
         <ScriptingSetting key="boot.path"
-                          value="C:\Users\I76597\h3\csp_apps_sam_9x7\deps\at91bootstrap_binaries\at91bootstrap.elf"/>
+                          value="${ProjectDir}\..\..\..\..\..\deps\at91bootstrap_binaries\at91bootstrap.elf"/>
         <ScriptingSetting key="boot.prj" value=""/>
       </ScriptingSettings>
       <compileType>
@@ -471,8 +460,6 @@
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="300000-eff00fff"/>
         <property key="poweroptions.powerenable" value="false"/>
-        <property key="programmerToGoFilePath"
-                  value="C:/Users/I76597/h3/csp_apps_sam_9x7/apps/qspi/qspi_read_write/frimware/sam_9x75_curiosity.X/debug/sam_9x75_curiosity/sam_9x75_curiosity_ptg"/>
         <property key="programmerToGoImageName" value="sam_9x75_curiosity_ptg"/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>

@@ -9,4 +9,4 @@ package:
   dependencies:
     - name: "csp"
       type: "package"
-      version: "v3.19.4"
+      version: "v3.19.5"

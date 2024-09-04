@@ -116,7 +116,7 @@ uint32_t TC0_CH0_TimerCounterGet (void)
 /* Check if timer period status is set */
 bool TC0_CH0_TimerPeriodHasExpired(void)
 {
-    return (((TC0_REGS->TC_CHANNEL[0].TC_SR) & TC_SR_CPCS_Msk) >> TC_SR_CPCS_Pos);
+    return ((((TC0_REGS->TC_CHANNEL[0].TC_SR) & TC_SR_CPCS_Msk) >> TC_SR_CPCS_Pos) != 0U);
 }
  
  
