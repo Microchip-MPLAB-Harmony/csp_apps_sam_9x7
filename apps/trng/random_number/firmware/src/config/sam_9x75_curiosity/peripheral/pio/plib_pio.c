@@ -117,8 +117,8 @@ void PIO_Initialize ( void )
     /* PORTC Output Write Enable */
     ((pio_registers_t*)PIO_PORT_C)->PIO_OWER = PIO_OWER_Msk;
     /* PORTC Output Direction Enable */
-    ((pio_registers_t*)PIO_PORT_C)->PIO_OER = 0x0U;
-    ((pio_registers_t*)PIO_PORT_C)->PIO_ODR = ~0x0U;
+    ((pio_registers_t*)PIO_PORT_C)->PIO_OER = 0x4000U;
+    ((pio_registers_t*)PIO_PORT_C)->PIO_ODR = ~0x4000U;
     /* Initialize PORTC pin state */
     ((pio_registers_t*)PIO_PORT_C)->PIO_ODSR = 0x0U;
     /* PORTC Additional interrupt mode Enable */
