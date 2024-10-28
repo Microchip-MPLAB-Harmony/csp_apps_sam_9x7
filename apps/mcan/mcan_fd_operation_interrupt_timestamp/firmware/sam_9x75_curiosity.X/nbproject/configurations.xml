@@ -154,6 +154,8 @@
             <itemPath>../src/packs/SAM9X75D2G_DFP/instance/sfr.h</itemPath>
             <itemPath>../src/packs/SAM9X75D2G_DFP/instance/sdmmc0.h</itemPath>
             <itemPath>../src/packs/SAM9X75D2G_DFP/instance/gpbr.h</itemPath>
+            <itemPath>../src/packs/SAM9X75D2G_DFP/instance/mipiphy.h</itemPath>
+            <itemPath>../src/packs/SAM9X75D2G_DFP/instance/lvdsphy.h</itemPath>
           </logicalFolder>
           <logicalFolder name="pio" displayName="pio" projectFiles="true">
             <itemPath>../src/packs/SAM9X75D2G_DFP/pio/sam9x75d2g.h</itemPath>
@@ -166,7 +168,6 @@
       <itemPath>Makefile</itemPath>
       <itemPath>../src/config/sam_9x75_curiosity/harmony-manifest-success.yml</itemPath>
       <itemPath>../src/config/sam_9x75_curiosity/pin_configurations.csv</itemPath>
-      <itemPath>mcan_fd_operation_interrupt_timestamp_sam_9x75_eb.mc3</itemPath>
       <itemPath>mcan_fd_operation_interrupt_timestamp_sam_9x75_curiosity.mc3</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript" displayName="Linker Files" projectFiles="true">
@@ -228,7 +229,7 @@
         <platform>3</platform>
       </toolsSet>
       <packs>
-        <pack name="SAM9X7_DFP" vendor="Microchip" version="1.3.149"/>
+        <pack name="SAM9X7_DFP" vendor="Microchip" version="1.6.161"/>
       </packs>
       <ScriptingSettings>
         <ScriptingSetting key="boot.load_adr" value=""/>
