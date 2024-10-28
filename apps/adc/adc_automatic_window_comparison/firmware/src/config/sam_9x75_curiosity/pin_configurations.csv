@@ -41,7 +41,7 @@ E3,PC15,,Available,In,,,,,,,,
 E4,PC23,,Available,In,,,,,,,,
 E16,PD14,,Available,In,,,,,,,,
 E17,PB14,,Available,In,,,,,,,,
-F2,PC14,,Available,In,,,,,,,,
+F2,PC14,LED_RED,GPIO,Out,Low,No,Disabled,No,No,Disabled,No,Low
 F16,PB6,,Available,In,,,,,,,,
 G1,PC8,,Available,In,,,,,,,,
 G2,PC0,,Available,In,,,,,,,,
