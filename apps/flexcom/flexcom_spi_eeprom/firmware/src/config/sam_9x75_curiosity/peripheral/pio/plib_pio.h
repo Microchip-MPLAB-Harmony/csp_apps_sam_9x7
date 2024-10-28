@@ -90,13 +90,13 @@
 #define EEPROM_HOLD_PIN                  PIO_PIN_PC21
 
 /*** Macros for LED_RED pin ***/
-#define LED_RED_Set()               (PIOC_REGS->PIO_SODR = ((uint32_t)1U<<19U))
-#define LED_RED_Clear()             (PIOC_REGS->PIO_CODR = ((uint32_t)1U<<19U))
-#define LED_RED_Toggle()            (PIOC_REGS->PIO_ODSR ^= ((uint32_t)1U<<19U))
-#define LED_RED_OutputEnable()      (PIOC_REGS->PIO_OER = ((uint32_t)1U<<19U))
-#define LED_RED_InputEnable()       (PIOC_REGS->PIO_ODR = ((uint32_t)1U<<19U))
-#define LED_RED_Get()               ((PIOC_REGS->PIO_PDSR >> 19U) & 0x1U)
-#define LED_RED_PIN                  PIO_PIN_PC19
+#define LED_RED_Set()               (PIOC_REGS->PIO_SODR = ((uint32_t)1U<<14U))
+#define LED_RED_Clear()             (PIOC_REGS->PIO_CODR = ((uint32_t)1U<<14U))
+#define LED_RED_Toggle()            (PIOC_REGS->PIO_ODSR ^= ((uint32_t)1U<<14U))
+#define LED_RED_OutputEnable()      (PIOC_REGS->PIO_OER = ((uint32_t)1U<<14U))
+#define LED_RED_InputEnable()       (PIOC_REGS->PIO_ODR = ((uint32_t)1U<<14U))
+#define LED_RED_Get()               ((PIOC_REGS->PIO_PDSR >> 14U) & 0x1U)
+#define LED_RED_PIN                  PIO_PIN_PC14
 
 
 // *****************************************************************************

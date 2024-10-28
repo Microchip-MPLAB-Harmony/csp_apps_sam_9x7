@@ -154,6 +154,8 @@
             <itemPath>../src/packs/SAM9X75D2G_DFP/instance/mcan1.h</itemPath>
             <itemPath>../src/packs/SAM9X75D2G_DFP/instance/pwm.h</itemPath>
             <itemPath>../src/packs/SAM9X75D2G_DFP/instance/sha.h</itemPath>
+            <itemPath>../src/packs/SAM9X75D2G_DFP/instance/mipiphy.h</itemPath>
+            <itemPath>../src/packs/SAM9X75D2G_DFP/instance/lvdsphy.h</itemPath>
           </logicalFolder>
           <logicalFolder name="pio" displayName="pio" projectFiles="true">
             <itemPath>../src/packs/SAM9X75D2G_DFP/pio/sam9x75d2g.h</itemPath>
@@ -228,7 +230,7 @@
         <platform>3</platform>
       </toolsSet>
       <packs>
-        <pack name="SAM9X7_DFP" vendor="Microchip" version="1.3.149"/>
+        <pack name="SAM9X7_DFP" vendor="Microchip" version="1.6.161"/>
       </packs>
       <ScriptingSettings>
         <ScriptingSetting key="boot.load_adr" value=""/>
