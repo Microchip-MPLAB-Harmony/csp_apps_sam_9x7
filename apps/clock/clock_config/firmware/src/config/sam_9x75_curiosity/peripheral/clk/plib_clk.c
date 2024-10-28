@@ -36,13 +36,6 @@ Initialize Programmable clocks
 static void initProgrammableClk(void)
 {
     PMC_REGS->PMC_SCDR |= PMC_SCDR_PCK0_Msk | PMC_SCDR_PCK1_Msk;
-    PMC_REGS->PMC_PCK[1] = PMC_PCK_CSS_PLLA |
-                                PMC_PCK_PRES(199);
-    PMC_REGS->PMC_SCER |= PMC_SCDR_PCK1_Msk;
-    while ((PMC_REGS->PMC_SR & PMC_SR_PCKRDY1_Msk) != PMC_SR_PCKRDY1_Msk)
-    {
-        /* Wait */
-    }
 }
 
 /*********************************************************************************
@@ -61,6 +54,7 @@ static void initPeriphClk(void)
         { ID_PIOA, 1, 0, 0, 0},
         { ID_PIOB, 1, 0, 0, 0},
         { ID_PIOC, 1, 0, 0, 0},
+        { ID_TC0, 1, 0, 0, 0},
         { ID_PIOD, 1, 0, 0, 0},
         { ID_PERIPH_MAX + 1, 0, 0, 0, 0}//end of list marker
     };

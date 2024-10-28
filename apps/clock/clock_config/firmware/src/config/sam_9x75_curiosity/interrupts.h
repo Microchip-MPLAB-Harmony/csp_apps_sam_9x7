@@ -58,6 +58,7 @@
 // *****************************************************************************
 
 void SYSC_SharedHandler (void);
+void TC0_InterruptHandler (void);
 
 void PIT_InterruptHandler (void);
 
